@@ -1,0 +1,7 @@
+{
+  "name": "Hidden History Project",
+  "short_name": "HiddenHistory",
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#111"
+}
