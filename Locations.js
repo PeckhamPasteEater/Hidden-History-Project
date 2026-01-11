@@ -14,5 +14,10 @@ const locations = [
     lng: -122.14005,
     description: "Frank was only away for one year. Much had changed; after giving birth to Hope in Palo Alto, Josephine had also gone away to care for Frank’s father in Cincinnati, Ohio, who had developed cancer due to a lifetime of smoking. When Josephine returned, she bought a house here on Newell Road for a sum total of $7,500. What is now South Bay suburban sprawl was once the city’s limit. The Duvenecks, standing here, would be perched on the edge of human settlement. The year was 1919; as a member of the occupying force of Germany, Frank remained after the armistice until August. When he returned, he saw his daughter for the first time.",
     //image
-  }
+  }, {
+    id: "test",
+    title: "test”,
+    lat: 37.38323,
+    lng: -122.09449,
+    description: "test"
 ];
