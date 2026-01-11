@@ -2,26 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Walking Tour</title>
+  <title>Hidden History Project</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
+
 <body>
+<header>
+  <h1>Hidden History Project</h1>
+  <input id="search" placeholder="Search locations…" />
+</header>
 
 <div id="map"></div>
 
-<div id="stop-info">
-  <h2 id="stop-title">Walk to the first stop</h2>
-  <img id="stop-image" />
-  <p id="stop-description"></p>
-  <audio id="stop-audio" controls></audio>
-  <a id="directions" target="_blank"></a>
+<div id="info-panel" class="hidden">
+  <h2 id="info-title"></h2>
+  <img id="info-image" />
+  <p id="info-description"></p>
+  <button onclick="closeInfo()">Close</button>
 </div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="tourData.js"></script>
-<script src="script.js"></script>
-
+<script src="locations.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
