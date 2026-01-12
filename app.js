@@ -148,3 +148,18 @@ document
     alert("Notification permission: " + permission);
   });
 
+/*----Test stuff---*/
+async function forceNotification() {
+  if (!("serviceWorker" in navigator)) {
+    alert("No service worker");
+    return;
+  }
+
+  const reg = await navigator.serviceWorker.ready;
+
+  reg.showNotification("Force Test", {
+    body: "If you see this, notifications work."
+  });
+}
+
+
