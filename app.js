@@ -46,6 +46,7 @@ document.getElementById("search").addEventListener("input", e => {
 
 // Notifications
 async function notify(loc) {
+  if (!("serviceWorker" in navigator)) return;
   if (notified.has(loc.id)) return;
 
   notified.add(loc.id);
