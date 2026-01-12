@@ -1,6 +1,8 @@
 let notified = new Set();
 
-const map = L.map("map").setView([locations[0].lat, locations[0].lng], 15);
+//const map = L.map("map").setView([locations[0].lat, locations[0].lng], 15);
+const map = L.map("map").setView([37.38323, -122.09449], 13);
+
 
 L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
