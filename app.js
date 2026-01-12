@@ -5,10 +5,10 @@ const map = L.map("map").setView([37.38323, -122.09449], 13);
 
 
 L.tileLayer(
-  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {
     maxZoom: 19,
-    attribution: "© OpenStreetMap © CARTO"
+    attribution: "© OpenStreetMap contributors"
   }
 ).addTo(map);
 
