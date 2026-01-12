@@ -22,11 +22,11 @@ header {
   box-sizing: border-box;
 }
 
-#map {
+/*#map {
   flex: 1;
   width: 100%;
-  position: relative; /* CRITICAL for iOS Safari */
-}
+  position: relative; 
+}*/
 
 #info-panel {
   padding: 1rem;
