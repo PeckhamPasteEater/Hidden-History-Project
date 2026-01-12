@@ -1,9 +1,38 @@
-self.addEventListener("install", () => {
+const CACHE_NAME = "hidden-history-v1";
+
+const ASSETS = [
+  "./",
+  "./index.html",
+  "./style.css",
+  "./app.js",
+  "./locations.js",
+  "./manifest.json",
+  "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
+  "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+];
+
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
+  );
   self.skipWaiting();
 });
 
-self.addEventListener("activate", () => {
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.map(k => k !== CACHE_NAME && caches.delete(k)))
+    )
+  );
   self.clients.claim();
+});
+
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
+  );
 });
 
 self.addEventListener("notificationclick", event => {
@@ -14,16 +43,11 @@ self.addEventListener("notificationclick", event => {
     self.clients.matchAll({ type: "window", includeUncontrolled: true })
       .then(clientList => {
         for (const client of clientList) {
-          if ("focus" in client) {
-            client.focus();
-            client.navigate(`./#${id}`);
-            return;
-          }
+          client.focus();
+          client.navigate(`./#${id}`);
+          return;
         }
-
-        if (self.clients.openWindow) {
-          return self.clients.openWindow(`./#${id}`);
-        }
+        return self.clients.openWindow(`./#${id}`);
       })
   );
 });
