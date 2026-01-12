@@ -159,6 +159,17 @@ document
     alert("Nearby location alerts are now enabled.");
   });
 
+/*---auto open information---*/
+window.addEventListener("load", () => {
+  const id = window.location.hash.replace("#", "");
+  if (!id) return;
+
+  const loc = locations.find(l => l.id === id);
+  if (loc) {
+    map.setView([loc.lat, loc.lng], 17);
+    openInfo(loc);
+  }
+});
 
 
 
