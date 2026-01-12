@@ -1,5 +1,13 @@
 let notified = new Set();
 
+if (location.hash) {
+  const id = location.hash.substring(1);
+  const loc = locations.find(l => l.id === id);
+  if (loc) {
+    openInfo(loc);
+  }
+}
+
 /* ---------- MAP SETUP ---------- */
 
 const map = L.map("map");
