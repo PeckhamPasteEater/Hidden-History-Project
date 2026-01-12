@@ -1,6 +1,13 @@
-body {
+html, body {
+  height: 100%;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -12,13 +19,14 @@ header {
 #search {
   width: 100%;
   padding: 0.5rem;
+  box-sizing: border-box;
 }
 
 #map {
-  height: calc(100vh - 120px);
+  flex: 1;
   width: 100%;
+  position: relative; /* CRITICAL for iOS Safari */
 }
-
 
 #info-panel {
   padding: 1rem;
@@ -28,6 +36,8 @@ header {
   width: 100%;
   max-height: 50%;
   overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
 }
 
 .hidden {
