@@ -187,4 +187,20 @@ async function forceNotification() {
   });
 }
 
+document.getElementById("start-app").addEventListener("click", async () => {
+  // Request notifications
+  if ("Notification" in window) {
+    await Notification.requestPermission();
+  }
+
+  // Trigger location permission
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(() => {}, () => {});
+  }
+
+  // Hide splash
+  document.getElementById("splash").style.display = "none";
+});
+
+
 
