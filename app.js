@@ -1,22 +1,17 @@
 const VISITED_KEY = "hidden-history-visited";
 
 function getVisited() {
-  return JSON.parse(localStorage.getItem(VISITED_KEY)) || [];
+  return JSON.parse(localStorage.getItem(VISITED_KEY)) || {};
 }
 
-function saveVisited(list) {
-  localStorage.setItem(VISITED_KEY, JSON.stringify(list));
+function saveVisited(data) {
+  localStorage.setItem(VISITED_KEY, JSON.stringify(data));
 }
+
 
 let notified = new Set();
 
-if (location.hash) {
-  const id = location.hash.substring(1);
-  const loc = locations.find(l => l.id === id);
-  if (loc) {
-    openInfo(loc);
-  }
-}
+
 
 /* ---------- MAP SETUP ---------- */
 
@@ -221,11 +216,13 @@ document.getElementById("start-app").addEventListener("click", async () => {
 
 function markVisited(loc) {
   const visited = getVisited();
-  if (visited.includes(loc.id)) return;
 
-  visited.push(loc.id);
+  if (visited[loc.id]) return;
+
+  visited[loc.id] = new Date().toISOString();
   saveVisited(visited);
 }
+
 
 // visited list UI
 
@@ -233,14 +230,32 @@ function openVisited() {
   const list = document.getElementById("visited-list");
   list.innerHTML = "";
 
-  const visitedIds = getVisited();
+  const visited = getVisited();
+  const entries = Object.entries(visited)
+    .sort((a, b) => new Date(b[1]) - new Date(a[1]));
 
-  visitedIds.forEach(id => {
+  if (entries.length === 0) {
+    list.innerHTML = "<li>No places visited yet.</li>";
+  }
+
+  entries.forEach(([id, dateString]) => {
     const loc = locations.find(l => l.id === id);
     if (!loc) return;
 
     const li = document.createElement("li");
-    li.textContent = loc.title;
+
+    const date = new Date(dateString);
+    const formatted = date.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+
+    li.innerHTML = `
+      <strong>${loc.title}</strong><br>
+      <small>Visited ${formatted}</small>
+    `;
+
     li.onclick = () => {
       map.setView([loc.lat, loc.lng], 17);
       openInfo(loc);
@@ -252,6 +267,7 @@ function openVisited() {
 
   document.getElementById("visited-panel").classList.remove("hidden");
 }
+
 
 function closeVisited() {
   document.getElementById("visited-panel").classList.add("hidden");
