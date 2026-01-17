@@ -2,74 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>Hidden History Project</title>
 
-  <link rel="apple-touch-startup-image"
-      href="splash-2732.png"
-      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)">
+  <!-- iOS splash image -->
+  <link
+    rel="apple-touch-startup-image"
+    href="splash-2732.png"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+  />
 
-
-  <!-- Leaflet CSS (REQUIRED) -->
+  <!-- Leaflet CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
 
-  <!-- Your styles -->
+  <!-- App styles -->
   <link rel="stylesheet" href="style.css" />
 
+  <!-- PWA -->
   <link rel="apple-touch-icon" sizes="180x180" href="icon-180-final.png">
   <link rel="manifest" href="manifest-v2.json">
   <meta name="theme-color" content="#111111">
-
-
-
 </head>
 
-
 <body>
+
+  <!-- SPLASH SCREEN -->
   <div id="splash">
-  <img src="icon-180-final.png" alt="Hidden History Project icon">
-  <p>
-    Hello! Welcome to the Hidden History Project. We're glad you're here. For the best experience, we suggest you enable location tracking
-    and notifications when asked. Press "continue" to proceed.
-  </p>
-  <button id="start-app">Continue</button>
-</div>
+    <img src="icon-180-final.png" alt="Hidden History Project icon">
 
-<header>
-  <h1>Hidden History Project</h1>
-  <input id="search" placeholder="Search locations…" />
-  <button id="open-visited">Visited</button>
+    <p>
+      Welcome to the Hidden History Project.<br><br>
+      For the best experience, we suggest enabling
+      <strong>location tracking</strong> and
+      <strong>notifications</strong>.
+    </p>
 
-</header>
+    <button id="start-app" class="btn btn-primary">
+      Continue
+    </button>
+  </div>
 
-<button id="enable-notifications">
-  Enable Nearby Notifications
-</button>
+  <!-- HEADER -->
+  <header class="app-header">
+    <h1>Hidden History</h1>
 
+    <input
+      id="search"
+      placeholder="Search locations…"
+    />
 
-<div id="map" style="height: 100vh; width: 100vw;"></div>
+    <button
+      id="open-visited"
+      class="btn btn-ghost"
+    >
+      Visited
+    </button>
+  </header>
 
+  <!-- NOTIFICATIONS CTA -->
+  <button
+    id="enable-notifications"
+    class="btn btn-primary"
+  >
+    Enable Nearby Notifications
+  </button>
 
-<div id="info-panel" class="hidden">
-  <h2 id="info-title"></h2>
-  <img id="info-image" />
-  <p id="info-description"></p>
-  <button onclick="closeInfo()">Close</button>
-</div>
-  
-<div id="visited-panel" class="hidden">
-  <h2>Visited Places</h2>
-  <ul id="visited-list"></ul>
-  <button onclick="closeVisited()">Close</button>
-</div>
+  <!-- MAP -->
+  <div id="map"></div>
 
+  <!-- INFO PANEL -->
+  <div id="info-panel" class="hidden">
+    <h2 id="info-title"></h2>
+    <img id="info-image" />
+    <p id="info-description"></p>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="locations.js"></script>
-<script src="app.js"></script>
+    <button
+      class="btn btn-secondary"
+      onclick="closeInfo()"
+    >
+      Close
+    </button>
+  </div>
+
+  <!-- VISITED PANEL -->
+  <div id="visited-panel" class="hidden">
+    <h2>Visited Places</h2>
+    <ul id="visited-list"></ul>
+
+    <button
+      class="btn btn-secondary"
+      onclick="closeVisited()"
+    >
+      Close
+    </button>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="locations.js"></script>
+  <script src="app.js"></script>
+
 </body>
 </html>
