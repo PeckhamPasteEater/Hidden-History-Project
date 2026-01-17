@@ -173,3 +173,9 @@ button {
   font-size: 0.65rem;
   opacity: 0.6;
 }
+/* ---------- HISTORICAL MAP TONE ---------- */
+
+.leaflet-tile {
+  filter: sepia(0.45) contrast(0.95) brightness(0.98);
+}
+
