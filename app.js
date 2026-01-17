@@ -11,6 +11,7 @@ function saveVisited(data) {
 
 let notified = new Set();
 
+let notificationsEnabled = false;
 
 
 /* ---------- MAP SETUP ---------- */
@@ -147,28 +148,7 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./service-worker.js");
 }
 
-/*----button handler----*/
-let notificationsEnabled = localStorage.getItem("notifications-enabled") === "true";
 
-
-document
-  .getElementById("enable-notifications")
-  .addEventListener("click", async () => {
-    const permission = await Notification.requestPermission();
-
-    if (permission !== "granted") {
-      alert("Notifications are disabled.");
-      return;
-    }
-
-  notificationsEnabled = true;
-  localStorage.setItem("notifications-enabled", "true");
-
-
-    document.getElementById("enable-notifications").style.display = "none";
-
-    alert("Nearby location alerts are now enabled.");
-  });
 
 /*---auto open information---*/
 window.addEventListener("load", () => {
@@ -200,23 +180,25 @@ async function forceNotification() {
 
 document.getElementById("start-app").addEventListener("click", async () => {
   // Request notifications
-  if ("Notification" in window) {
-    await Notification.requestPermission();
+  if ("Notification" in window") {
+    const permission = await Notification.requestPermission();
+    notificationsEnabled = permission === "granted";
   }
 
-  document
-  .getElementById("open-visited")
-  .addEventListener("click", openVisited);
-
-  
   // Trigger location permission
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(() => {}, () => {});
   }
 
+  // Enable visited button
+  document
+    .getElementById("open-visited")
+    .addEventListener("click", openVisited);
+
   // Hide splash
   document.getElementById("splash").style.display = "none";
 });
+
 
 function markVisited(loc) {
   const visited = getVisited();
