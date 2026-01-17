@@ -239,7 +239,14 @@ function markVisited(loc) {
 
   visited[loc.id] = new Date().toISOString();
   saveVisited(visited);
+
+  // Update marker icon to visited
+  const marker = markers[loc.id];
+  if (marker) {
+    marker.setIcon(visitedIcon);
+  }
 }
+
 
 
 // visited list UI
