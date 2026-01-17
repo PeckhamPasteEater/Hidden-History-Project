@@ -178,25 +178,36 @@ async function forceNotification() {
   });
 }
 
-document.getElementById("start-app").addEventListener("click", async () => {
-  // Request notifications
-  if ("Notification" in window") {
-    const permission = await Notification.requestPermission();
-    notificationsEnabled = permission === "granted";
+window.addEventListener("DOMContentLoaded", () => {
+  const startBtn = document.getElementById("start-app");
+
+  if (!startBtn) {
+    console.error("Start button not found");
+    return;
   }
 
-  // Trigger location permission
-  if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(() => {}, () => {});
-  }
+  startBtn.addEventListener("click", async () => {
+    console.log("Continue clicked");
 
-  // Enable visited button
-  document
-    .getElementById("open-visited")
-    .addEventListener("click", openVisited);
+    // Ask for notification permission
+    if ("Notification" in window) {
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        notificationsEnabled = true;
+      }
+    }
 
-  // Hide splash
-  document.getElementById("splash").style.display = "none";
+    // Trigger location permission
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        () => {},
+        () => {}
+      );
+    }
+
+    // Hide splash screen
+    document.getElementById("splash").style.display = "none";
+  });
 });
 
 
