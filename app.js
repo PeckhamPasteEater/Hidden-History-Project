@@ -270,5 +270,17 @@ function closeVisited() {
   document.getElementById("visited-panel").classList.add("hidden");
 }
 
+window.addEventListener("DOMContentLoaded", () => {
+  const visitedBtn = document.getElementById("open-visited");
+
+  if (!visitedBtn) {
+    console.error("Visited button not found");
+    return;
+  }
+
+  visitedBtn.addEventListener("click", openVisited);
+});
+
+
 
 
