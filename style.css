@@ -177,3 +177,50 @@ button {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* ---------- SPLASH SCREEN ---------- */
+
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+
+  background: linear-gradient(135deg, #f5f1e8, #e6dcc6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 2rem;
+}
+
+#splash img {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 1.5rem;
+}
+
+#splash p {
+  max-width: 420px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+#start-app {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#start-app:active {
+  transform: scale(0.98);
+}
+
