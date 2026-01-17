@@ -83,6 +83,7 @@ document.getElementById("search").addEventListener("input", e => {
 
 async function notify(loc) {
   if (!notificationsEnabled) return;
+  if (Notification.permission !== "granted") return;
   if (notified.has(loc.id)) return;
 
   notified.add(loc.id);
@@ -147,7 +148,8 @@ if ("serviceWorker" in navigator) {
 }
 
 /*----button handler----*/
-let notificationsEnabled = false;
+let notificationsEnabled = localStorage.getItem("notifications-enabled") === "true";
+
 
 document
   .getElementById("enable-notifications")
@@ -159,7 +161,9 @@ document
       return;
     }
 
-    notificationsEnabled = true;
+  notificationsEnabled = true;
+  localStorage.setItem("notifications-enabled", "true");
+
 
     document.getElementById("enable-notifications").style.display = "none";
 
