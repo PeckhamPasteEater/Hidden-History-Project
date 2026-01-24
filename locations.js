@@ -100,8 +100,8 @@ const locations = [
   {
     id: "okeefe_site",
     title: "O'Keefe Ohlone Settlement",
-    lat: 37.3718,
-    lng: -122.1152,
+    lat: 37.371749,
+    lng: -122.130912,
     description: "Placeholder. In collaboration with Hidden Villa",
     image: ""
   },
