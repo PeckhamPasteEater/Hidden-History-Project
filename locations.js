@@ -126,7 +126,79 @@ const locations = [
     title: "Hidden Villa Hostel",
     lat: 37.35055,
     lng: -122.16010,
-    description: "Part 3 in a series of sites celebrating the founders of Hidden Villa, the Duvenecks. Read preceding sites for complete narrative. The Duvenecks spent any spare time that they had outdoors. In their Ford Model T, they would cruise through the then-treacherous Santa Cruz mountains, camping on hillsides and in clearings. They had always dreamed of owning their own open space. In 1924, they found it on a routine drive down Moody Road. Spying the familiar metal flags as well as a 'for sale' sign, they were intrigued: they turned in, and discovered the thousand-acre lot that would serve both as their home and a setting for some of the Bay Area's most significant history: Hidden Villa. Amazed by its pristine, unblemished nature, the Duvenecks purchased the lot. They completed the Duveneck House in 1929, completed in a Spanish colonial style, and laden with intricate ironwork. In collaboration with Hidden Villa",
+    description: "Placeholder. In collaboration with Hidden Villa",
+    image: ""
+  },
+  {
+    id: "hostess_house",
+    title: "Hostess House (now a restaurant)",
+    lat: 37.4430264,
+    lng: -122.1655246,
+    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    image: ""
+  },
+  {
+    id: "downing_house",
+    title: "The Downing House",
+    lat: 37.44655,
+    lng: -122.15673,
+    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    image: ""
+  },
+  {
+    id: "bryant_house",
+    title: "440-450 Bryant Street",
+    lat: 37.4462943,
+    lng: -122.1625154,
+    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    image: ""
+  },
+  {
+    id: "ashby_house",
+    title: "Ashby House",
+    lat: 37.4530237,
+    lng: -122.1480158,
+    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    image: ""
+  },
+  {
+    id: "pa_post_office",
+    title: "Old Palo Alto Post Office",
+    lat: 37.4458095,
+    lng: -122.1592599,
+    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    image: ""
+  },
+  {
+    id: "church_residence",
+    title: "St. Thomas Aquinas Church Residence",
+    lat: 37.4451864,
+    lng: -122.1569313,
+    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    image: ""
+  },
+  {
+    id: "harbourmasters_house",
+    title: "Harbourmaster's House",
+    lat: 37.4575089,
+    lng: -122.1075783,
+    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    image: ""
+  },
+  {
+    id: "pa_first_hospital",
+    title: "Palo Alto's First Hospital",
+    lat: 37.4491051,
+    lng: -122.1609048,
+    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    image: ""
+  },
+  {
+    id: "professorville",
+    title: "Professorville (geographical center)",
+    lat: 37.44161,
+    lng: -122.15413,
+    description: "A historic neighbourhood featuring houses designed by various Stanford professors, opened in 1895. In collaboration with the Museum of American Heritage.",
     image: ""
   }
 ];
