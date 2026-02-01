@@ -6,7 +6,13 @@ const ASSETS = [
   "./style.css",
   "./app.js",
   "./locations.js",
-  "./manifest.json",
+  "./manifest-v2.json",
+
+  "./icon-180-final.png",
+  "./icon-192-final.png",
+  "./icon-512-final.png",
+  "./splash-2732.png",
+
   "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
   "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 ];
