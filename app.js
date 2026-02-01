@@ -8,7 +8,6 @@ function saveVisited(data) {
   localStorage.setItem(VISITED_KEY, JSON.stringify(data));
 }
 
-
 let notified = new Set();
 
 const defaultIcon = L.icon({
@@ -25,19 +24,9 @@ const visitedIcon = L.icon({
   iconAnchor: [12, 41]
 });
 
-
 let notificationsEnabled = false;
 
-let pendingHashId = null;
-
-// Capture hash as early as possible
-if (window.location.hash) {
-  pendingHashId = window.location.hash.substring(1);
-}
-
-
 /* ---------- MAP SETUP ---------- */
-
 const map = L.map("map");
 
 const tileLayer = L.tileLayer(
@@ -49,12 +38,10 @@ const tileLayer = L.tileLayer(
 ).addTo(map);
 
 /* ---------- MARKERS ---------- */
-
 const markers = {};
 const bounds = [];
 
 locations.forEach(loc => {
-  // Safety check
   if (typeof loc.lat !== "number" || typeof loc.lng !== "number") return;
 
   const visited = getVisited()[loc.id];
@@ -64,7 +51,6 @@ locations.forEach(loc => {
     { icon: visited ? visitedIcon : defaultIcon }
   ).addTo(map);
 
-  // 👇 ADD THIS PART (title under each pin)
   marker.bindTooltip(loc.title, {
     permanent: true,
     direction: "bottom",
@@ -78,17 +64,14 @@ locations.forEach(loc => {
   bounds.push([loc.lat, loc.lng]);
 });
 
-
-/* Zoom map to show ALL pins */
+/* Zoom map to show all pins */
 if (bounds.length > 0) {
   map.fitBounds(bounds, { padding: [40, 40] });
 } else {
-  // Fallback if no locations load
   map.setView([51.505, -0.09], 13);
 }
 
 /* ---------- INFO PANEL ---------- */
-
 function openInfo(loc) {
   document.getElementById("info-title").textContent = loc.title;
   document.getElementById("info-description").textContent = loc.description;
@@ -101,7 +84,6 @@ function closeInfo() {
 }
 
 /* ---------- SEARCH ---------- */
-
 document.getElementById("search").addEventListener("input", e => {
   const q = e.target.value.toLowerCase();
 
@@ -118,7 +100,6 @@ document.getElementById("search").addEventListener("input", e => {
 });
 
 /* ---------- NOTIFICATIONS ---------- */
-
 async function notify(loc) {
   if (!notificationsEnabled) return;
   if (Notification.permission !== "granted") return;
@@ -134,9 +115,7 @@ async function notify(loc) {
   });
 }
 
-
 /* ---------- LOCATION TRACKING ---------- */
-
 let userMarker;
 
 if ("geolocation" in navigator) {
@@ -144,7 +123,6 @@ if ("geolocation" in navigator) {
     pos => {
       const user = [pos.coords.latitude, pos.coords.longitude];
 
-      // Show user location on map
       if (!userMarker) {
         userMarker = L.circleMarker(user, {
           radius: 6,
@@ -156,171 +134,108 @@ if ("geolocation" in navigator) {
         userMarker.setLatLng(user);
       }
 
-      // Check proximity to locations
       locations.forEach(loc => {
         const dist = map.distance(user, [loc.lat, loc.lng]);
-
-       if (dist < 50) {
-      notify(loc);
-      markVisited(loc);
-      }
-
+        if (dist < 50) {
+          notify(loc);
+          markVisited(loc);
+        }
       });
     },
-    err => {
-      console.error("Geolocation error", err);
-    },
-    {
-      enableHighAccuracy: true,
-      maximumAge: 10000,
-      timeout: 10000
-    }
+    err => console.error("Geolocation error", err),
+    { enableHighAccuracy: true, maximumAge: 10000, timeout: 10000 }
   );
 }
 
-
 /* ---------- SERVICE WORKER ---------- */
-
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./service-worker.js");
 }
 
+/* ---------- AUTO OPEN FROM NOTIFICATION / HASH ---------- */
+let pendingHashId = null;
 
-/* --- AUTO OPEN FROM NOTIFICATION / DEEP LINK --- */
-function tryOpenFromNotification() {
-  const id = pendingHashId || window.location.hash.substring(1);
+// Capture hash as early as possible
+if (window.location.hash) {
+  pendingHashId = window.location.hash.substring(1);
+}
+
+// Function to open a location by ID (handles iOS map quirks)
+function openLocationById(id) {
   if (!id) return;
-
-  // Wait until locations + map + markers exist
-  if (
-    !window.locations ||
-    !Array.isArray(locations) ||
-    !map ||
-    !markers ||
-    !markers[id]
-  ) {
-    setTimeout(tryOpenFromNotification, 100);
-    return;
-  }
-
   const loc = locations.find(l => l.id === id);
   if (!loc) return;
 
-  map.setView([loc.lat, loc.lng], 17);
-  openInfo(loc);
+  // Wait for Leaflet map to fully initialize
+  setTimeout(() => {
+    map.invalidateSize(true); // critical on iOS
+    map.setView([loc.lat, loc.lng], 17, { animate: true });
+    openInfo(loc);
+  }, 300);
 
   pendingHashId = null;
-
-  // Clear hash so it doesn't re-trigger later
   history.replaceState(null, "", window.location.pathname);
 }
 
-// Run on all relevant lifecycle events
-window.addEventListener("load", tryOpenFromNotification);
-window.addEventListener("pageshow", tryOpenFromNotification);
+// Run on all relevant events
+window.addEventListener("load", () => openLocationById(pendingHashId));
+window.addEventListener("pageshow", () => openLocationById(pendingHashId));
 window.addEventListener("hashchange", () => {
   pendingHashId = window.location.hash.substring(1);
-  tryOpenFromNotification();
+  openLocationById(pendingHashId);
 });
 
-
-
-/*----Test stuff---*/
-async function forceNotification() {
-  if (!("serviceWorker" in navigator)) {
-    alert("No service worker");
-    return;
-  }
-
-  const reg = await navigator.serviceWorker.ready;
-
-  reg.showNotification("Force Test", {
-    body: "If you see this, notifications work."
-  });
-}
-
+/* ---------- START APP BUTTON ---------- */
 window.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-app");
-
-  if (!startBtn) {
-    console.error("Start button not found");
-    return;
-  }
+  if (!startBtn) return;
 
   startBtn.addEventListener("click", async () => {
-    console.log("Continue clicked");
-
-    // Ask for notification permission
     if ("Notification" in window) {
       const permission = await Notification.requestPermission();
-      if (permission === "granted") {
-        notificationsEnabled = true;
-      }
+      if (permission === "granted") notificationsEnabled = true;
     }
 
-    // Trigger location permission
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        () => {},
-        () => {}
-      );
+      navigator.geolocation.getCurrentPosition(() => {}, () => {});
     }
 
-    // Hide splash screen
     document.getElementById("splash").style.display = "none";
   });
 });
 
-
+/* ---------- VISITED ---------- */
 function markVisited(loc) {
   const visited = getVisited();
-
   if (visited[loc.id]) return;
 
   visited[loc.id] = new Date().toISOString();
   saveVisited(visited);
 
-  // Update marker icon to visited
   const marker = markers[loc.id];
-  if (marker) {
-    marker.setIcon(visitedIcon);
-  }
+  if (marker) marker.setIcon(visitedIcon);
 }
-
-
-
-// visited list UI
 
 function openVisited() {
   const list = document.getElementById("visited-list");
   list.innerHTML = "";
-
   const visited = getVisited();
   const entries = Object.entries(visited)
     .sort((a, b) => new Date(b[1]) - new Date(a[1]));
 
-  if (entries.length === 0) {
-    list.innerHTML = "<li>No places visited yet.</li>";
-  }
+  if (entries.length === 0) list.innerHTML = "<li>No places visited yet.</li>";
 
   entries.forEach(([id, dateString]) => {
     const loc = locations.find(l => l.id === id);
     if (!loc) return;
 
     const li = document.createElement("li");
-
     const date = new Date(dateString);
     const formatted = date.toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "short",
-      day: "numeric"
+      year: "numeric", month: "short", day: "numeric"
     });
 
-    li.innerHTML = `
-      <strong>${loc.title}</strong><br>
-      <small>Visited ${formatted}</small>
-    `;
-
+    li.innerHTML = `<strong>${loc.title}</strong><br><small>Visited ${formatted}</small>`;
     li.onclick = () => {
       map.setView([loc.lat, loc.lng], 17);
       openInfo(loc);
@@ -333,22 +248,12 @@ function openVisited() {
   document.getElementById("visited-panel").classList.remove("hidden");
 }
 
-
 function closeVisited() {
   document.getElementById("visited-panel").classList.add("hidden");
 }
 
 window.addEventListener("DOMContentLoaded", () => {
   const visitedBtn = document.getElementById("open-visited");
-
-  if (!visitedBtn) {
-    console.error("Visited button not found");
-    return;
-  }
-
+  if (!visitedBtn) return;
   visitedBtn.addEventListener("click", openVisited);
 });
-
-
-
-
