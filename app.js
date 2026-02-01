@@ -179,18 +179,31 @@ if ("serviceWorker" in navigator) {
 }
 
 
+/* --- AUTO OPEN FROM NOTIFICATION / DEEP LINK --- */
 
-/*---auto open information---*/
-window.addEventListener("load", () => {
+function openFromHash() {
   const id = window.location.hash.replace("#", "");
   if (!id) return;
 
-  const loc = locations.find(l => l.id === id);
-  if (loc) {
-    map.setView([loc.lat, loc.lng], 17);
-    openInfo(loc);
+  if (!window.locations || !map) {
+    // App not ready yet — retry shortly
+    setTimeout(openFromHash, 100);
+    return;
   }
-});
+
+  const loc = locations.find(l => l.id === id);
+  if (!loc) return;
+
+  map.setView([loc.lat, loc.lng], 17);
+  openInfo(loc);
+
+  // Optional: clear hash so it doesn't re-open later
+  history.replaceState(null, "", window.location.pathname);
+}
+
+window.addEventListener("load", openFromHash);
+window.addEventListener("hashchange", openFromHash);
+
 
 
 
