@@ -197,6 +197,12 @@ function openFromHash() {
   map.setView([loc.lat, loc.lng], 17);
   openInfo(loc);
 
+  const marker = markers[loc.id];
+    if (marker) {
+      marker.openPopup?.();
+    }
+
+
   // Optional: clear hash so it doesn't re-open later
   history.replaceState(null, "", window.location.pathname);
 }
