@@ -28,6 +28,13 @@ const visitedIcon = L.icon({
 
 let notificationsEnabled = false;
 
+let pendingHashId = null;
+
+// Capture hash as early as possible
+if (window.location.hash) {
+  pendingHashId = window.location.hash.substring(1);
+}
+
 
 /* ---------- MAP SETUP ---------- */
 
@@ -180,14 +187,19 @@ if ("serviceWorker" in navigator) {
 
 
 /* --- AUTO OPEN FROM NOTIFICATION / DEEP LINK --- */
-
-function openFromHash() {
-  const id = window.location.hash.replace("#", "");
+function tryOpenFromNotification() {
+  const id = pendingHashId || window.location.hash.substring(1);
   if (!id) return;
 
-  if (!window.locations || !map) {
-    // App not ready yet — retry shortly
-    setTimeout(openFromHash, 100);
+  // Wait until locations + map + markers exist
+  if (
+    !window.locations ||
+    !Array.isArray(locations) ||
+    !map ||
+    !markers ||
+    !markers[id]
+  ) {
+    setTimeout(tryOpenFromNotification, 100);
     return;
   }
 
@@ -197,19 +209,19 @@ function openFromHash() {
   map.setView([loc.lat, loc.lng], 17);
   openInfo(loc);
 
-  const marker = markers[loc.id];
-    if (marker) {
-      marker.openPopup?.();
-    }
+  pendingHashId = null;
 
-
-  // Optional: clear hash so it doesn't re-open later
+  // Clear hash so it doesn't re-trigger later
   history.replaceState(null, "", window.location.pathname);
 }
 
-window.addEventListener("load", openFromHash);
-window.addEventListener("hashchange", openFromHash);
-
+// Run on all relevant lifecycle events
+window.addEventListener("load", tryOpenFromNotification);
+window.addEventListener("pageshow", tryOpenFromNotification);
+window.addEventListener("hashchange", () => {
+  pendingHashId = window.location.hash.substring(1);
+  tryOpenFromNotification();
+});
 
 
 
