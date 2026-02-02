@@ -246,11 +246,22 @@ function openVisited() {
   });
 
   document.getElementById("visited-panel").classList.remove("hidden");
+  document.body.style.overflow = "hidden";
 }
 
 function closeVisited() {
   document.getElementById("visited-panel").classList.add("hidden");
+  document.body.style.overflow = "";
 }
+
+
+const visitedPanel = document.getElementById("visited-panel");
+const openVisitedBtn = document.getElementById("open-visited");
+
+openVisitedBtn.addEventListener("click", () => {
+  visitedPanel.classList.remove("hidden");
+});
+
 
 window.addEventListener("DOMContentLoaded", () => {
   const visitedBtn = document.getElementById("open-visited");
