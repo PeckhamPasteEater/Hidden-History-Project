@@ -117,8 +117,7 @@ button {
 
 /* ---------- INFO PANEL ---------- */
 
-#info-panel,
-#visited-panel {
+#info-panel {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -133,11 +132,32 @@ button {
   z-index: 1500;
 }
 
-#info-title,
-#visited-panel h2 {
-  font-family: "Libre Baskerville", serif;
-  margin-top: 0;
+/* FULL-PAGE VISITED VIEW */
+#visited-panel {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-paper);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 2000;
 }
+
+#visited-panel ul {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+}
+
+
+#info-title,
+#visited-panel .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
 
 #info-image {
   width: 100%;
