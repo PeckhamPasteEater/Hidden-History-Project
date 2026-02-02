@@ -175,6 +175,18 @@ button {
 .hidden {
   display: none;
 }
+#visited-panel.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%);
+}
+
+#visited-panel:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 
 /* ---------- VISITED LIST ---------- */
 
