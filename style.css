@@ -141,7 +141,14 @@ button {
   flex-direction: column;
   overflow: hidden;
   z-index: 2000;
+
+  /* START HIDDEN SAFELY */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%);
+  transition: transform 0.25s ease, opacity 0.2s ease;
 }
+
 
 #visited-panel ul {
   flex: 1;
