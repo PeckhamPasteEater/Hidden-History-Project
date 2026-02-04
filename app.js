@@ -135,6 +135,14 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./service-worker.js");
 }
 
+// Listen for messages from the service worker
+navigator.serviceWorker.addEventListener("message", event => {
+  if (event.data?.action === "open-location") {
+    openLocationById(event.data.id);
+  }
+});
+
+
 /* VISITED FUNCTIONS */
 function markVisited(loc) {
   const visited = getVisited();
