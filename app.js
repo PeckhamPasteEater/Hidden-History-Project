@@ -255,14 +255,6 @@ function closeVisited() {
 }
 
 
-const visitedPanel = document.getElementById("visited-panel");
-const openVisitedBtn = document.getElementById("open-visited");
-
-openVisitedBtn.addEventListener("click", () => {
-  visitedPanel.classList.remove("hidden");
-});
-
-
 window.addEventListener("DOMContentLoaded", () => {
   const visitedBtn = document.getElementById("open-visited");
   if (!visitedBtn) return;
