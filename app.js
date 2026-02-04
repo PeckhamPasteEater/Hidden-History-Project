@@ -188,6 +188,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("open-visited")?.addEventListener("click", openVisited);
   document.getElementById("close-visited")?.addEventListener("click", closeVisited);
-
+  document.getElementById("close-info")?.addEventListener("click", closeInfo);
   document.getElementById("visited-panel").classList.add("hidden");
 });
