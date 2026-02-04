@@ -34,19 +34,9 @@ L.tileLayer(
   {
     attribution: "&copy; OpenStreetMap &copy; CARTO",
     subdomains: "abcd",
-    maxZoom: 19,
-    className: "map-sepia"
+    maxZoom: 19
   }
 ).addTo(map);
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.addEventListener("message", event => {
-    if (event.data?.action === "open-location") {
-      openLocationById(event.data.id);
-    }
-  });
-}
-
 
 /* MARKERS */
 const markers = {};
@@ -140,16 +130,14 @@ if ("geolocation" in navigator) {
 
 /* SERVICE WORKER */
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js");
+  navigator.serviceWorker.register("./service-worker.js").then(reg => {
+    navigator.serviceWorker.addEventListener("message", event => {
+      if (event.data?.action === "open-location") {
+        openLocationById(event.data.id);
+      }
+    });
+  });
 }
-
-// Listen for messages from the service worker
-navigator.serviceWorker.addEventListener("message", event => {
-  if (event.data?.action === "open-location") {
-    openLocationById(event.data.id);
-  }
-});
-
 
 /* VISITED FUNCTIONS */
 function markVisited(loc) {
@@ -205,5 +193,4 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("open-visited")?.addEventListener("click", openVisited);
   document.getElementById("close-visited")?.addEventListener("click", closeVisited);
   document.getElementById("close-info")?.addEventListener("click", closeInfo);
-  document.getElementById("visited-panel").classList.add("hidden");
 });
