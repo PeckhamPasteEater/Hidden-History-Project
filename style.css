@@ -187,6 +187,13 @@ button {
   transform: translateY(0);
 }
 
+#visited-panel h2 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
 
 /* ---------- VISITED LIST ---------- */
 
@@ -205,6 +212,19 @@ button {
 #visited-list li strong {
   font-family: "Libre Baskerville", serif;
 }
+
+#close-visited {
+  margin: 1rem auto 1.25rem;
+  background: var(--accent-brass);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+}
+
 
 /* ---------- LEAFLET TWEAKS ---------- */
 
