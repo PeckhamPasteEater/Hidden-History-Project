@@ -50,9 +50,11 @@ self.addEventListener("notificationclick", event => {
       .then(clientList => {
         for (const client of clientList) {
           client.focus();
-          client.navigate(`./#${id}`);
+          // send a message to the page to open the location
+          client.postMessage({ action: "open-location", id });
           return;
         }
+        // if no clients open, open a new window with the hash
         return self.clients.openWindow(`./#${id}`);
       })
   );
