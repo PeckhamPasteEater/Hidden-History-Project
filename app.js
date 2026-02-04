@@ -216,6 +216,7 @@ function markVisited(loc) {
   if (marker) marker.setIcon(visitedIcon);
 }
 
+/* ---------- VISITED PANEL ---------- */
 function openVisited() {
   const list = document.getElementById("visited-list");
   list.innerHTML = "";
@@ -223,40 +224,55 @@ function openVisited() {
   const entries = Object.entries(visited)
     .sort((a, b) => new Date(b[1]) - new Date(a[1]));
 
-  if (entries.length === 0) list.innerHTML = "<li>No places visited yet.</li>";
+  if (entries.length === 0) {
+    list.innerHTML = "<li>No places visited yet.</li>";
+  } else {
+    entries.forEach(([id, dateString]) => {
+      const loc = locations.find(l => l.id === id);
+      if (!loc) return;
 
-  entries.forEach(([id, dateString]) => {
-    const loc = locations.find(l => l.id === id);
-    if (!loc) return;
+      const li = document.createElement("li");
+      const date = new Date(dateString);
+      const formatted = date.toLocaleDateString(undefined, {
+        year: "numeric", month: "short", day: "numeric"
+      });
 
-    const li = document.createElement("li");
-    const date = new Date(dateString);
-    const formatted = date.toLocaleDateString(undefined, {
-      year: "numeric", month: "short", day: "numeric"
+      li.innerHTML = `<strong>${loc.title}</strong><br><small>Visited ${formatted}</small>`;
+      li.style.cursor = "pointer";
+
+      li.addEventListener("click", () => {
+        map.setView([loc.lat, loc.lng], 17);
+        openInfo(loc);
+        closeVisited();
+      });
+
+      list.appendChild(li);
     });
+  }
 
-    li.innerHTML = `<strong>${loc.title}</strong><br><small>Visited ${formatted}</small>`;
-    li.onclick = () => {
-      map.setView([loc.lat, loc.lng], 17);
-      openInfo(loc);
-      closeVisited();
-    };
-
-    list.appendChild(li);
-  });
-
-  document.getElementById("visited-panel").classList.remove("hidden");
+  const panel = document.getElementById("visited-panel");
+  panel.classList.remove("hidden");
+  panel.style.animation = "slideIn 0.3s forwards";
   document.body.style.overflow = "hidden";
 }
 
 function closeVisited() {
-  document.getElementById("visited-panel").classList.add("hidden");
-  document.body.style.overflow = "";
+  const panel = document.getElementById("visited-panel");
+  panel.style.animation = "slideOut 0.3s forwards";
+
+  panel.addEventListener("animationend", () => {
+    panel.classList.add("hidden");
+    panel.style.animation = "";
+    document.body.style.overflow = "";
+  }, { once: true });
 }
 
-
+/* ---------- EVENT LISTENERS ---------- */
 window.addEventListener("DOMContentLoaded", () => {
   const visitedBtn = document.getElementById("open-visited");
-  if (!visitedBtn) return;
-  visitedBtn.addEventListener("click", openVisited);
+  const closeBtn = document.getElementById("close-visited");
+
+  if (visitedBtn) visitedBtn.addEventListener("click", openVisited);
+  if (closeBtn) closeBtn.addEventListener("click", closeVisited);
 });
+
