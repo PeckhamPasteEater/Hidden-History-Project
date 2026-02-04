@@ -2,34 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Hidden History Project</title>
 
-  <!-- iOS splash image -->
-  <link
-    rel="apple-touch-startup-image"
-    href="splash-2732.png"
-    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
-  />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
-
-  <!-- App styles -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- PWA -->
   <link rel="apple-touch-icon" sizes="180x180" href="icon-180-final.png">
   <link rel="manifest" href="manifest-v2.json">
   <meta name="theme-color" content="#111111">
@@ -37,56 +20,33 @@
 
 <body>
 
-  <!-- SPLASH SCREEN -->
+  <!-- SPLASH -->
   <div id="splash">
     <img src="icon-180-final.png" alt="Hidden History Project icon">
-
     <p>
       Welcome to the Hidden History Project.<br><br>
       For the best experience, we suggest enabling
       <strong>location tracking</strong> and
       <strong>notifications</strong>.
     </p>
-
-    <button id="start-app" class="btn btn-primary">
-      Continue
-    </button>
+    <button id="start-app">Continue</button>
   </div>
 
   <!-- HEADER -->
   <header class="app-header">
     <h1>Hidden History</h1>
-
-    <input
-      id="search"
-      placeholder="Search locations…"
-    />
-
-    <button
-      id="open-visited"
-      class="btn btn-ghost"
-    >
-      Visited
-    </button>
+    <input id="search" placeholder="Search locations…" />
+    <button id="open-visited">Visited</button>
   </header>
-
 
   <!-- MAP -->
   <div id="map"></div>
 
-  <!-- INFO PANEL -->
+  <!-- INFO PANEL (NO VISITED BUTTONS HERE) -->
   <div id="info-panel" class="hidden">
     <h2 id="info-title"></h2>
     <img id="info-image" />
     <p id="info-description"></p>
-
-    <button
-  id="close-visited"
-  onclick="closeVisited()"
->
-  Close Visited
-</button>
-
   </div>
 
   <!-- VISITED PANEL -->
@@ -94,11 +54,8 @@
     <h2>Visited Places</h2>
     <ul id="visited-list"></ul>
 
-    <button
-      class="btn btn-secondary"
-      onclick="closeVisited()"
-    >
-      Close
+    <button id="close-visited" onclick="closeVisited()">
+      Close Visited
     </button>
   </div>
 
