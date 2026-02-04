@@ -91,7 +91,7 @@ html, body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* VISITED PANEL */
@@ -102,43 +102,16 @@ html, body {
   z-index: 2000;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  padding: 1rem;
 }
 
-#visited-panel h2 {
-  padding: 1.25rem 1.5rem 0.75rem;
-  margin:
-
-/* VISITED PANEL SLIDE ANIMATION */
-@keyframes slideIn {
-  from { transform: translateY(100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slideOut {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(100%); opacity: 0; }
-}
-
-/* VISITED PANEL SLIDE ANIMATION */
-#visited-panel {
-  position: fixed;
-  inset: 0;
-  background: var(--bg-paper);
-  z-index: 2000;
-  display: flex;
-  flex-direction: column;
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* Optional: make list items look clickable */
+/* VISITED LIST ITEMS */
 #visited-list li {
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #ccc;
+  cursor: pointer;
 }
 #visited-list li:hover {
   background: #f0e9d9;
 }
-
