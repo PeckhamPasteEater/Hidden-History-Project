@@ -29,10 +29,16 @@ let notificationsEnabled = false;
 /* MAP SETUP */
 const map = L.map("map");
 
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-  maxZoom: 19,
-  attribution: "© OpenStreetMap © CARTO"
-}).addTo(map);
+L.tileLayer(
+  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", 
+  {
+    attribution: "&copy; OpenStreetMap &copy; CARTO",
+    subdomains: "abcd",
+    maxZoom: 19,
+    className: "map-sepia"
+  }
+).addTo(map);
+
 
 /* MARKERS */
 const markers = {};
