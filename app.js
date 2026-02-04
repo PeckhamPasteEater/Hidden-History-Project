@@ -39,6 +39,14 @@ L.tileLayer(
   }
 ).addTo(map);
 
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.addEventListener("message", event => {
+    if (event.data?.action === "open-location") {
+      openLocationById(event.data.id);
+    }
+  });
+}
+
 
 /* MARKERS */
 const markers = {};
