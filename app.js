@@ -26,18 +26,15 @@ const visitedIcon = L.icon({
 
 let notificationsEnabled = false;
 
-/* ---------- MAP SETUP ---------- */
+/* MAP SETUP */
 const map = L.map("map");
 
-const tileLayer = L.tileLayer(
-  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-  {
-    maxZoom: 19,
-    attribution: "© OpenStreetMap © CARTO"
-  }
-).addTo(map);
+L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+  maxZoom: 19,
+  attribution: "© OpenStreetMap © CARTO"
+}).addTo(map);
 
-/* ---------- MARKERS ---------- */
+/* MARKERS */
 const markers = {};
 const bounds = [];
 
@@ -48,26 +45,20 @@ locations.forEach(loc => {
 
   const marker = L.marker([loc.lat, loc.lng], { icon: visited ? visitedIcon : defaultIcon })
     .addTo(map)
-    .bindTooltip(loc.title, {
-      permanent: true,
-      direction: "bottom",
-      offset: [0, 10],
-      className: "pin-label"
-    })
+    .bindTooltip(loc.title, { permanent: true, direction: "bottom", offset: [0, 10], className: "pin-label" })
     .on("click", () => openInfo(loc));
 
   markers[loc.id] = marker;
   bounds.push([loc.lat, loc.lng]);
 });
 
-/* Zoom map to show all pins */
 if (bounds.length > 0) {
   map.fitBounds(bounds, { padding: [40, 40] });
 } else {
   map.setView([51.505, -0.09], 13);
 }
 
-/* ---------- INFO PANEL ---------- */
+/* INFO PANEL */
 function openInfo(loc) {
   document.getElementById("info-title").textContent = loc.title;
   document.getElementById("info-description").textContent = loc.description;
@@ -79,39 +70,29 @@ function closeInfo() {
   document.getElementById("info-panel").classList.add("hidden");
 }
 
-/* ---------- SEARCH ---------- */
+/* SEARCH */
 document.getElementById("search").addEventListener("input", e => {
   const q = e.target.value.toLowerCase();
-
   locations.forEach(loc => {
     const marker = markers[loc.id];
     if (!marker) return;
-
-    if (loc.title.toLowerCase().includes(q)) {
-      marker.addTo(map);
-    } else {
-      map.removeLayer(marker);
-    }
+    if (loc.title.toLowerCase().includes(q)) marker.addTo(map);
+    else map.removeLayer(marker);
   });
 });
 
-/* ---------- NOTIFICATIONS ---------- */
+/* NOTIFICATIONS */
 async function notify(loc) {
   if (!notificationsEnabled) return;
   if (Notification.permission !== "granted") return;
   if (notified.has(loc.id)) return;
 
   notified.add(loc.id);
-
   const reg = await navigator.serviceWorker.ready;
-
-  reg.showNotification("Hidden History Nearby", {
-    body: loc.title,
-    data: loc.id
-  });
+  reg.showNotification("Hidden History Nearby", { body: loc.title, data: loc.id });
 }
 
-/* ---------- LOCATION TRACKING ---------- */
+/* LOCATION TRACKING */
 let userMarker;
 
 if ("geolocation" in navigator) {
@@ -143,71 +124,15 @@ if ("geolocation" in navigator) {
   );
 }
 
-/* ---------- SERVICE WORKER ---------- */
+/* SERVICE WORKER */
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./service-worker.js");
 }
 
-/* ---------- AUTO OPEN FROM NOTIFICATION / HASH ---------- */
-let pendingHashId = null;
-
-if (window.location.hash) {
-  pendingHashId = window.location.hash.substring(1);
-}
-
-function openLocationById(id) {
-  if (!id) return;
-  const loc = locations.find(l => l.id === id);
-  if (!loc) return;
-
-  setTimeout(() => {
-    map.invalidateSize(true);
-    map.setView([loc.lat, loc.lng], 17, { animate: true });
-    openInfo(loc);
-  }, 300);
-
-  pendingHashId = null;
-  history.replaceState(null, "", window.location.pathname);
-}
-
-window.addEventListener("load", () => openLocationById(pendingHashId));
-window.addEventListener("pageshow", () => openLocationById(pendingHashId));
-window.addEventListener("hashchange", () => {
-  pendingHashId = window.location.hash.substring(1);
-  openLocationById(pendingHashId);
-});
-
-/* ---------- START APP BUTTON ---------- */
-window.addEventListener("DOMContentLoaded", () => {
-  const startBtn = document.getElementById("start-app");
-  const visitedBtn = document.getElementById("open-visited");
-  const closeBtn = document.getElementById("close-visited");
-
-  // Splash screen
-  startBtn?.addEventListener("click", async () => {
-    if ("Notification" in window) {
-      const permission = await Notification.requestPermission();
-      if (permission === "granted") notificationsEnabled = true;
-    }
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(() => {}, () => {});
-    }
-    document.getElementById("splash").style.display = "none";
-  });
-
-  // Visited panel buttons
-  visitedBtn?.addEventListener("click", openVisited);
-  closeBtn?.addEventListener("click", closeVisited);
-
-  // Ensure panel hidden on load
-  document.getElementById("visited-panel").classList.add("hidden");
-});
-
-/* ---------- VISITED ---------- */
+/* VISITED FUNCTIONS */
 function markVisited(loc) {
   const visited = getVisited();
   if (visited[loc.id]) return;
-
   visited[loc.id] = new Date().toISOString();
   saveVisited(visited);
 
@@ -215,47 +140,48 @@ function markVisited(loc) {
   if (marker) marker.setIcon(visitedIcon);
 }
 
-/* ---------- VISITED PANEL ---------- */
 function openVisited() {
   const list = document.getElementById("visited-list");
   list.innerHTML = "";
   const visited = getVisited();
-  const entries = Object.entries(visited)
-    .sort((a, b) => new Date(b[1]) - new Date(a[1]));
+  const entries = Object.entries(visited).sort((a, b) => new Date(b[1]) - new Date(a[1]));
 
-  if (entries.length === 0) {
-    list.innerHTML = "<li>No places visited yet.</li>";
-  } else {
+  if (entries.length === 0) list.innerHTML = "<li>No places visited yet.</li>";
+  else {
     entries.forEach(([id, dateString]) => {
       const loc = locations.find(l => l.id === id);
       if (!loc) return;
-
       const li = document.createElement("li");
       const date = new Date(dateString);
-      const formatted = date.toLocaleDateString(undefined, {
-        year: "numeric", month: "short", day: "numeric"
-      });
-
+      const formatted = date.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
       li.innerHTML = `<strong>${loc.title}</strong><br><small>Visited ${formatted}</small>`;
-      li.style.cursor = "pointer";
-
-      li.addEventListener("click", () => {
-        map.setView([loc.lat, loc.lng], 17);
-        openInfo(loc);
-        closeVisited();
-      });
-
+      li.addEventListener("click", () => { map.setView([loc.lat, loc.lng], 17); openInfo(loc); closeVisited(); });
       list.appendChild(li);
     });
   }
 
-  const panel = document.getElementById("visited-panel");
-  panel.classList.remove("hidden");
+  document.getElementById("visited-panel").classList.remove("hidden");
   document.body.style.overflow = "hidden";
 }
 
 function closeVisited() {
-  const panel = document.getElementById("visited-panel");
-  panel.classList.add("hidden");
+  document.getElementById("visited-panel").classList.add("hidden");
   document.body.style.overflow = "";
 }
+
+/* EVENT LISTENERS */
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("start-app")?.addEventListener("click", async () => {
+    if ("Notification" in window) {
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") notificationsEnabled = true;
+    }
+    if ("geolocation" in navigator) navigator.geolocation.getCurrentPosition(() => {}, () => {});
+    document.getElementById("splash").style.display = "none";
+  });
+
+  document.getElementById("open-visited")?.addEventListener("click", openVisited);
+  document.getElementById("close-visited")?.addEventListener("click", closeVisited);
+
+  document.getElementById("visited-panel").classList.add("hidden");
+});
