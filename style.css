@@ -107,8 +107,9 @@ html, body {
 }
 
 .leaflet-tile-pane img {
-  filter: sepia(0.3) contrast(1.1) brightness(0.9);
+  filter: (0.3) contrast(1.1) brightness(0.9);
 }
+
 
 
 /* VISITED LIST ITEMS */
