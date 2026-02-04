@@ -118,3 +118,27 @@ html, body {
   from { transform: translateY(0); opacity: 1; }
   to { transform: translateY(100%); opacity: 0; }
 }
+
+/* VISITED PANEL SLIDE ANIMATION */
+#visited-panel {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-paper);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Optional: make list items look clickable */
+#visited-list li {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+}
+#visited-list li:hover {
+  background: #f0e9d9;
+}
+
