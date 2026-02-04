@@ -46,19 +46,15 @@ locations.forEach(loc => {
 
   const visited = getVisited()[loc.id];
 
-  const marker = L.marker(
-    [loc.lat, loc.lng],
-    { icon: visited ? visitedIcon : defaultIcon }
-  ).addTo(map);
-
-  marker.bindTooltip(loc.title, {
-    permanent: true,
-    direction: "bottom",
-    offset: [0, 10],
-    className: "pin-label"
-  });
-
-  marker.on("click", () => openInfo(loc));
+  const marker = L.marker([loc.lat, loc.lng], { icon: visited ? visitedIcon : defaultIcon })
+    .addTo(map)
+    .bindTooltip(loc.title, {
+      permanent: true,
+      direction: "bottom",
+      offset: [0, 10],
+      className: "pin-label"
+    })
+    .on("click", () => openInfo(loc));
 
   markers[loc.id] = marker;
   bounds.push([loc.lat, loc.lng]);
@@ -155,20 +151,17 @@ if ("serviceWorker" in navigator) {
 /* ---------- AUTO OPEN FROM NOTIFICATION / HASH ---------- */
 let pendingHashId = null;
 
-// Capture hash as early as possible
 if (window.location.hash) {
   pendingHashId = window.location.hash.substring(1);
 }
 
-// Function to open a location by ID (handles iOS map quirks)
 function openLocationById(id) {
   if (!id) return;
   const loc = locations.find(l => l.id === id);
   if (!loc) return;
 
-  // Wait for Leaflet map to fully initialize
   setTimeout(() => {
-    map.invalidateSize(true); // critical on iOS
+    map.invalidateSize(true);
     map.setView([loc.lat, loc.lng], 17, { animate: true });
     openInfo(loc);
   }, 300);
@@ -177,7 +170,6 @@ function openLocationById(id) {
   history.replaceState(null, "", window.location.pathname);
 }
 
-// Run on all relevant events
 window.addEventListener("load", () => openLocationById(pendingHashId));
 window.addEventListener("pageshow", () => openLocationById(pendingHashId));
 window.addEventListener("hashchange", () => {
@@ -188,20 +180,27 @@ window.addEventListener("hashchange", () => {
 /* ---------- START APP BUTTON ---------- */
 window.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-app");
-  if (!startBtn) return;
+  const visitedBtn = document.getElementById("open-visited");
+  const closeBtn = document.getElementById("close-visited");
 
-  startBtn.addEventListener("click", async () => {
+  // Splash screen
+  startBtn?.addEventListener("click", async () => {
     if ("Notification" in window) {
       const permission = await Notification.requestPermission();
       if (permission === "granted") notificationsEnabled = true;
     }
-
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(() => {}, () => {});
     }
-
     document.getElementById("splash").style.display = "none";
   });
+
+  // Visited panel buttons
+  visitedBtn?.addEventListener("click", openVisited);
+  closeBtn?.addEventListener("click", closeVisited);
+
+  // Ensure panel hidden on load
+  document.getElementById("visited-panel").classList.add("hidden");
 });
 
 /* ---------- VISITED ---------- */
@@ -252,27 +251,11 @@ function openVisited() {
 
   const panel = document.getElementById("visited-panel");
   panel.classList.remove("hidden");
-  panel.style.animation = "slideIn 0.3s forwards";
   document.body.style.overflow = "hidden";
 }
 
 function closeVisited() {
   const panel = document.getElementById("visited-panel");
-  panel.style.animation = "slideOut 0.3s forwards";
-
-  panel.addEventListener("animationend", () => {
-    panel.classList.add("hidden");
-    panel.style.animation = "";
-    document.body.style.overflow = "";
-  }, { once: true });
+  panel.classList.add("hidden");
+  document.body.style.overflow = "";
 }
-
-/* ---------- EVENT LISTENERS ---------- */
-window.addEventListener("DOMContentLoaded", () => {
-  const visitedBtn = document.getElementById("open-visited");
-  const closeBtn = document.getElementById("close-visited");
-
-  if (visitedBtn) visitedBtn.addEventListener("click", openVisited);
-  if (closeBtn) closeBtn.addEventListener("click", closeVisited);
-});
-
