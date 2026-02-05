@@ -143,7 +143,15 @@ html, body {
 }
 
 /* Body text (descriptions) */
-#info-description,
+/* Exhibit-style description text */
+#info-description {
+  font-family: "EB Garamond", serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-dark);
+}
+
+/* Lists stay clean and modern */
 #visited-list li {
   font-family: "Source Sans 3", system-ui, sans-serif;
   font-size: 0.95rem;
