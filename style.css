@@ -121,3 +121,47 @@ html, body {
 #visited-list li:hover {
   background: #f0e9d9;
 }
+
+/* ===============================
+   HISTORICAL / MUSEUM TYPOGRAPHY
+   =============================== */
+
+/* App title */
+.app-header h1 {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Section headings */
+#info-panel h2,
+#visited-panel h2 {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Body text (descriptions) */
+#info-description,
+#visited-list li {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-dark);
+}
+
+/* Dates / metadata feel */
+#visited-list small {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Buttons feel archival, not modern */
+button {
+  font-family: "Libre Baskerville", serif;
+  letter-spacing: 0.05em;
+}
+
