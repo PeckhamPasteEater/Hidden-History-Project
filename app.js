@@ -62,6 +62,22 @@ if (bounds.length > 0) {
   map.setView([51.505, -0.09], 13);
 }
 
+/* OPEN LOCATION FROM NOTIFICATION */
+function openLocationById(id) {
+  if (!id) return;
+
+  const loc = locations.find(l => l.id === id);
+  if (!loc) return;
+
+  // iOS + PWA need a short delay so the map can reflow
+  setTimeout(() => {
+    map.invalidateSize(true);
+    map.setView([loc.lat, loc.lng], 17, { animate: true });
+    openInfo(loc);
+  }, 300);
+}
+
+
 /* INFO PANEL */
 function openInfo(loc) {
   document.getElementById("info-title").textContent = loc.title;
@@ -130,14 +146,15 @@ if ("geolocation" in navigator) {
 
 /* SERVICE WORKER */
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js").then(reg => {
-    navigator.serviceWorker.addEventListener("message", event => {
-      if (event.data?.action === "open-location") {
-        openLocationById(event.data.id);
-      }
-    });
+  navigator.serviceWorker.register("./service-worker.js");
+
+  navigator.serviceWorker.addEventListener("message", event => {
+    if (event.data?.action === "open-location") {
+      openLocationById(event.data.id);
+    }
   });
 }
+
 
 /* VISITED FUNCTIONS */
 function markVisited(loc) {
