@@ -30,7 +30,7 @@ const locations = [
     title: "Elizabeth F. Gamble Garden",
     lat: 37.4400122,
     lng: -122.1482255,
-    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    description: "An estate which would later be a garden established by Edwin P. Gamble, son of the co-founder of Procter and Gamble, James Gamble, in 1901. For a sum total of $6, 039, Gamble constructed a cottage and carriage house for himself on the edge of town; although now the Gamble Garden is surrounded by suburbs, it was once the very edge of Palo Alto. Gamble would have been free to expand into what was once wilderness. His daughter, Elizabeth, would ride her pony around the grounds as a youth, but soon grew into a passionate gardener. Known for her floral print dresses and generosity with garden flowers, she used her wealth to provide loans for young girls to attend college. She inherited the estate in 1939 and devoted her life to beautifying it, adding the Tea House in 1948. When she died at age ninety-two in 1981, her estate was bequeathed to the city of Palo Alto, who converted the plot into a public garden. In collaboration with the Museum of American Heritage.",
     image: ""
   },
   {
@@ -38,7 +38,7 @@ const locations = [
     title: "HP Garage",
     lat: 37.44307,
     lng: -122.15481,
-    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    description: "Largely considered the birthplace of Silicon Valley. Constructed at an unknown date behind a house dating to 1905. While searching for rentals which contained both a workshop and ample living space, Bill Hewlett and Dave Packard discovered the Addison Avenue property. Together, they shared the $45 per month rent, and used their garage as a space for research, development, and prototyping, including for the Model 200A audio oscillator, HP's first product. Soon, after having named the company, they outgrew their garage, moving into a Page Mill Road property. HP re-aquired the Garage property in 2000, and has preserved its original 1939 conditions. In collaboration with the Museum of American Heritage.",
     image: ""
   },
   {
@@ -46,7 +46,7 @@ const locations = [
     title: "Roth Building (now Palo Alto History Museum)",
     lat: 37.44361,
     lng: -122.15722,
-    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    description: "The original site of The Palo Alto Medical Clinic, the first group medical practice in Palo Alto. Founded by Dr. Russell Lee, a graduate of Berkeley and Stanford Medical School, and Dr. Thomas Williams, who later hired Dr. EB Roth and Dr. Esther B. Clark--of park fame. After more shifts in staff, they formed the Palo Alto Medical Clinic, Ltd. in the early thirties, often conflated by many at the time with socialised medicine. They outgrew their original quarters on Bryant, and constructed the Spanish Eclectic Roth Building under the guide of architect--and sister of Dr. Clark--Birge Clark. Centred around a courtyard are wings and rooms that once were doctor's offices or examination rooms. In 2026, it became the Palo Alto History Museum. In collaboration with the Museum of American Heritage.",
     image: ""
   },
   {
@@ -54,7 +54,7 @@ const locations = [
     title: "Stanford Theatre",
     lat: 37.4450694,
     lng: -122.16270,
-    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    description: ". In collaboration with the Museum of American Heritage.",
     image: ""
   },
   {
