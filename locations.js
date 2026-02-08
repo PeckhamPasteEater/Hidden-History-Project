@@ -78,7 +78,7 @@ const locations = [
     title: "Hanna House",
     lat: 37.4160139,
     lng: -122.1635528,
-    description: "Placeholder. In collaboration with the Museum of American Heritage",
+    description: "Also known as the Honeycomb House: Frank Lloyd Wright's first work in the San Francisco area. One of the most iconic American architects in history, Wright designed the Hanna House for Stanford professor Paul Hanna and his wife Jean in 1936. Hinged on Wright's seminal Usonian reformist ideals: houses that prioritised affordability and spatial flow in design, to ultimately create a more enlightened society. These techniques are evident in the lack of right angles in the House's floor plan, emphasising open space. Ideas experimented with in the Hanna House would later bloom into Wright masterpieces, such as that of the Guggenheim. Hanna reached Wright after being enthralled by Wright's book, Modern Architecture. The house developed over the course of 25 years, and even survived the 1989 Loma Prieta earthquake despite its location on the San Andreas Fault; it incurred significant damage, yet could certainly be repaired. In 1974, the house was donated to Stanford University. In collaboration with the Museum of American Heritage",
     image: ""
   },
   {
