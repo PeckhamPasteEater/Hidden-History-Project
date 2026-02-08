@@ -38,7 +38,7 @@ const locations = [
     title: "HP Garage",
     lat: 37.44307,
     lng: -122.15481,
-    description: "Largely considered the birthplace of Silicon Valley. Constructed at an unknown date behind a house dating to 1905. While searching for rentals which contained both a workshop and ample living space, Bill Hewlett and Dave Packard discovered the Addison Avenue property. Together, they shared the $45 per month rent, and used their garage as a space for research, development, and prototyping, including for the Model 200A audio oscillator, HP's first product. Soon, after having named the company, they outgrew their garage, moving into a Page Mill Road property. HP re-aquired the Garage property in 2000, and has preserved its original 1939 conditions. In collaboration with the Museum of American Heritage.",
+    description: "Widely considered the birthplace of Silicon Valley. Constructed at an unknown date behind a house dating to 1905. While searching for rentals which contained both a workshop and ample living space, Bill Hewlett and Dave Packard discovered the Addison Avenue property. Together, they shared the $45 per month rent, and used their garage as a space for research, development, and prototyping, including for the Model 200A audio oscillator, HP's first product. Soon, after having named the company, they outgrew their garage, moving into a Page Mill Road property. HP re-aquired the Garage property in 2000, and has preserved its original 1939 conditions. In collaboration with the Museum of American Heritage.",
     image: ""
   },
   {
@@ -54,7 +54,7 @@ const locations = [
     title: "Stanford Theatre",
     lat: 37.4450694,
     lng: -122.16270,
-    description: ". In collaboration with the Museum of American Heritage.",
+    description: "Beloved historical theatre, opened 1925. Constructed in the Neoclassical movie palace style, a trend aiming to dazzle viewers not only through film but through ambience, for only $250,000, the New Stanford Theatre became the Bay Area's expression of the movie craze sweeping the world. For many years, the Theatre thrived; then came the 1960s, wherein the building fell into disrepair as modern cinemas overshadowed it. In 1987, David Woodley Packard, the son of HP's David Packard, purchased and renovated the theatre for over $6,000,000. With much accuracy, the original theatre was revived. Today, it thrives, showing classic, often black-and-white, or even silent films to an audience of Bay Area film enthusiasts. In collaboration with the Museum of American Heritage.",
     image: ""
   },
   {
@@ -62,7 +62,7 @@ const locations = [
     title: "Kee House",
     lat: 37.4245556,
     lng: -122.1474444,
-    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    description: "Historical house and barn dating to Palo Alto's predecessor village, Mayfield. Robert Norton Kee purchased this land, and as the proprietor of a transfer business, in 1889, he constructed a barn in which to house his horses, apparently for a sum total of $3, 500. He also purchased a building, once the G. Bracchi grocery, in 1893, which would become the modern Kee House. After shifting owners as a private residence as the village of Mayfield expanded into the City of Palo Alto, the was divided into apartments in the 60s. Unfortunately, the barn was destroyed in 1938, when it was the final surviving 19th century barn of Mayfield and the first barn in the College Terrace neighbourhood. The house remains a residence to this day. In collaboration with the Museum of American Heritage.",
     image: ""
   },
   {
@@ -70,7 +70,7 @@ const locations = [
     title: "Squire House",
     lat: 37.453056,
     lng: -122.153056,
-    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    description: "Arguably the most characteristic and striking house on University Avenue. As heir to one of the Big Four meatpacking monopolies, In 1904, John Adams Squire and his wife Georgiana commissioned San Francisco architect T. Paterson Ross to build their mansion, which costed $18, 000. Ross was a native of Edinburgh, and emigrated to San Francisco in 1890 as a twelve-year-old. Due to his work in San Francisco, he had become an acclaimed architect. For Squire and his wife, he created a great Roman Revival edifice, complete with a palm-lined drive. The interior is spacious and comfortable, while, in the rear, there is housed a swimming pool. When demolition threatened Squire House in 1973, a citizen's committee raised $90, 000, and in tandem with a $118, 000 contribution from the City, the house was restored. It is listed on the National Register of Historic Places. In collaboration with the Museum of American Heritage.",
     image: ""
   },
   {
