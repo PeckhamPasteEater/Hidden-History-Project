@@ -89,10 +89,18 @@ html, body {
   padding: 1rem;
   padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   z-index: 1500;
+  overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-
 }
+
+#info-panel p,
+#info-panel div,
+#info-panel span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 
 .hidden {
   display: none !important;
