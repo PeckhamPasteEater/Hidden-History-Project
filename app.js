@@ -206,8 +206,10 @@ window.addEventListener("DOMContentLoaded", () => {
       if (permission === "granted") notificationsEnabled = true;
     }
     
+        document.getElementById("splash").style.display = "none";
+    map.invalidateSize();
     startLocationTracking();
-    document.getElementById("splash").style.display = "none";
+
   });
 
   document.getElementById("open-visited")?.addEventListener("click", openVisited);
