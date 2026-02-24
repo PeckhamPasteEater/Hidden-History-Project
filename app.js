@@ -111,12 +111,14 @@ async function notify(loc) {
   const reg = await navigator.serviceWorker.ready;
   reg.showNotification("Hidden History Nearby", { body: loc.title, data: loc.id });
 }
-
-/* LOCATION TRACKING */
+/* Location */
 let userMarker;
+let watchId = null;
 
-if ("geolocation" in navigator) {
-  navigator.geolocation.watchPosition(
+function startLocationTracking() {
+  if (!("geolocation" in navigator)) return;
+
+  watchId = navigator.geolocation.watchPosition(
     pos => {
       const user = [pos.coords.latitude, pos.coords.longitude];
 
@@ -203,7 +205,8 @@ window.addEventListener("DOMContentLoaded", () => {
       const permission = await Notification.requestPermission();
       if (permission === "granted") notificationsEnabled = true;
     }
-    if ("geolocation" in navigator) navigator.geolocation.getCurrentPosition(() => {}, () => {});
+    
+    startLocationTracking();
     document.getElementById("splash").style.display = "none";
   });
 
