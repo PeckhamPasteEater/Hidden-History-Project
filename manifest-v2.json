@@ -1,6 +1,6 @@
 {
   "name": "Hidden History Project",
-  "short_name": "Hidden History",
+  "short_name": "HH Test",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
