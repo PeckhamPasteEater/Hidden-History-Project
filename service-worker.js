@@ -1,4 +1,4 @@
-const CACHE_NAME = "hidden-history-v2";
+const CACHE_NAME = "hidden-history-v4";
 
 const ASSETS = [
   "./",
@@ -6,7 +6,7 @@ const ASSETS = [
   "./style.css",
   "./app.js",
   "./locations.js",
-  "./manifest-v2.json",
+  "./manifest.json",
 
   "./icon-180-final.png",
   "./icon-192-final.png",
