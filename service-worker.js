@@ -1,4 +1,4 @@
-const CACHE_NAME = "hidden-history-v1";
+const CACHE_NAME = "hidden-history-v2";
 
 const ASSETS = [
   "./",
