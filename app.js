@@ -198,6 +198,28 @@ function closeVisited() {
   document.body.style.overflow = "";
 }
 
+/* FILTER */
+const activeFilters = new Set(["duvenecks", "silicon_valley", "pre_silicon_valley", "ohlone"]);
+
+function applyFilters() {
+  locations.forEach(loc => {
+    const marker = markers[loc.id];
+    if (!marker) return;
+    const cats = Array.isArray(loc.category) ? loc.category : [loc.category];
+    const show = !loc.category || cats.some(c => activeFilters.has(c));
+    if (show) marker.addTo(map);
+    else map.removeLayer(marker);
+  });
+}
+
+function openFilter() {
+  document.getElementById("filter-sidebar").classList.remove("hidden");
+}
+
+function closeFilter() {
+  document.getElementById("filter-sidebar").classList.add("hidden");
+}
+
 /* EVENT LISTENERS */
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("start-app")?.addEventListener("click", async () => {
@@ -215,4 +237,14 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("open-visited")?.addEventListener("click", openVisited);
   document.getElementById("close-visited")?.addEventListener("click", closeVisited);
   document.getElementById("close-info")?.addEventListener("click", closeInfo);
+  document.getElementById("open-filter")?.addEventListener("click", openFilter);
+    document.getElementById("close-filter")?.addEventListener("click", closeFilter);
+    document.querySelectorAll("#filter-list input[type=checkbox]").forEach(cb => {
+      cb.addEventListener("change", () => {
+        if (cb.checked) activeFilters.add(cb.dataset.category);
+        else activeFilters.delete(cb.dataset.category);
+        applyFilters();
+      });
+    });
+
 });
