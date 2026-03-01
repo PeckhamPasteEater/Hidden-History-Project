@@ -222,3 +222,57 @@ button {
   letter-spacing: 0.05em;
 }
 
+/* FILTER SIDEBAR */
+#filter-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background: var(--panel-bg);
+  z-index: 2000;
+  padding: 1.5rem 1rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#filter-sidebar.hidden {
+  display: none !important;
+}
+
+#filter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#filter-list li label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink-dark);
+  cursor: pointer;
+}
+
+#filter-list input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-brass);
+}
+
+#open-filter {
+  background: var(--accent-deep);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+}
+
+
