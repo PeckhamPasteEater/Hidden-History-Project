@@ -149,7 +149,7 @@ const locations = [
     lat: 37.4430264,
     lng: -122.1655246,
     category: "pre_silicon_valley",
-    description: "Placeholder. In collaboration with the Museum of American Heritage.",
+    description: "Constructed in 1918 by the YWCA, the Hostess House is an imprint of the vicious Great War--albeit nestled far across the ocean, in the once small and developing town of Palo Alto. It is the only fully intact building remaining from the two WWI-era Army training camps that were built in California; the Hostess House belonged to Camp Fremont. It was built as a difnified meeting place for women and children to visit their husbands, fathers, and friends. Additionally, it was designed by Julia Morgan, a characteristically Californian architect-engineer. It has weathered over a century of history to now house the MacArthur Park Restaurant and Bar. In collaboration with the Museum of American Heritage.",
     image: ""
   },
   {
