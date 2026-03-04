@@ -49,11 +49,18 @@ html, body {
   background: var(--panel-bg);
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
   box-shadow: var(--shadow-soft);
   z-index: 1000;
 }
+
+#search {
+  flex: 1;
+  min-width: 100px;
+}
+
 
 .app-header h1 {
   font-family: "Libre Baskerville", serif;
@@ -63,6 +70,8 @@ html, body {
 }
 
 #search {
+  flex: 1;
+  min-width: 100px;
   border-radius: 999px;
   padding: 0.4rem 0.75rem;
   border: 1px solid #ccc;
