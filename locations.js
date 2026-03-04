@@ -104,7 +104,7 @@ const locations = [
     lat: 37.396311,
     lng: -122.161784,
     category: "pre_silicon_valley",
-    description: ".",
+    description: "A two-story medieval-looking brick spire jutting conspicuously out-of-place amidst a mass of Bay Area oaks is not perhaps one of the first things a commuter on Old Page Mill Road would expect to see. Or, maybe, you've driven past so many times that it has merged with its surroundings to become a fixture of the route. In any case, the Frenchman's Tower is an enigma. Constructed in 1875 by reclusive Frenchman Paulin Caperon--who Anglicised his name to Petter Coutts--the Tower's first floor served as a library and the second floor served as a water tank; subterranean tunnels connected to the tower, providing water to his farm. It never had any doors; Caperon, who apparently enjoyed baffling his neighbours, entered through the window. In what was likely another attempt to mystify his neighbours, Caperon returned to France in 1882 without notifying his neighbours, abandoning the tower. For over a century and a half, it has hosted some of Silicon Valley's most interesting rumours; among them, theories that the French Empress or the unknown killer of Arlis Perry in 1974 found refuge in its tunnels.",
     image: ""
   },
   {
