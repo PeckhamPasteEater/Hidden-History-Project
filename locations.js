@@ -95,7 +95,7 @@ const locations = [
     lat: 37.4459921,
     lng: -122.1673342,
     category: "pre_silicon_valley",
-    description: "Placeholder. In collaboration with the Museum of American Heritage",
+    description: "A relic of a time when Palo Alto was a growing agricultural village: and the water bill was $1 monthly. The conceptual foundations for the Tower Well were laid in 1896, when Palo Alto became one of the first towns in America to purchase and operate its own water. However, the Well wouldn't be constructed until 1910, when the increasing population increased calls for a safe, convenient source of water. Rising 78 feet high, the well has a capacity of 155,000 gallons and an innovative electrical pumping system. However, by the 1980s, when the Bay Area's water grew increasingly sourced from Yosemite's Hetch Hetchy Resevoir, the Well was abandoned. Fortunately, the Palo Alto City Council rejected proposals to demolish the Tower and instead chose to propose it. Now it stands amidst native plants as a symbol of a Palo Alto lost to history. In collaboration with the Museum of American Heritage",
     image: ""
   },
   {
@@ -104,7 +104,7 @@ const locations = [
     lat: 37.396311,
     lng: -122.161784,
     category: "pre_silicon_valley",
-    description: "Placeholder.",
+    description: ".",
     image: ""
   },
   {
