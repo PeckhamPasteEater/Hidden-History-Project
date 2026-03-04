@@ -288,4 +288,16 @@ button {
   padding: 0.4rem 0.9rem;
 }
 
+#header-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-end;
+}
+
+#header-buttons button {
+  width: 100%;
+}
+
+
 
