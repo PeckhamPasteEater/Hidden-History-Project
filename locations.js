@@ -126,6 +126,15 @@ const locations = [
     image: ""
   },
   {
+    id: "white_house",
+    title: "The White House",
+    lat: 37.34941,
+    lng: -122.16279,
+    category: ["duvenecks", "pre_silicon_valley"],
+    description: "The oldest standing building on the Hidden Villa property, constructed in 1860, is perhaps as regal and stately as its Washington D.C. namesake--with a little bit of California flair. It was constructed as a stop on the stagecoach route from San Jose to Pescadero; weary riders would hitch up their horses and put up for the night in the White House. As towns developed up and down the peninsula, the stagecoach industry was lost to time. It wasn't until 1924 when Frank and Josephine Duveneck bought the land that would become Hidden Villa that the House was again seriously used; the Duvenecks stayed in the house until 1929, when their Spanish mansion across the dirt path was completed. In collaboration with Hidden Villa.",
+    image: ""
+  },
+  {
     id: "duveneck_house",
     title: "Duvenecks Part 3: The Duveneck House",
     lat: 37.35011,
