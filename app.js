@@ -83,8 +83,45 @@ function openInfo(loc) {
   document.getElementById("info-title").textContent = loc.title;
   document.getElementById("info-description").textContent = loc.description;
   document.getElementById("info-image").src = loc.image || "";
+
+  const seeMoreBtn = document.getElementById("see-more-btn");
+  if (loc.longDescription) {
+    seeMoreBtn.classList.remove("hidden");
+    seeMoreBtn.onclick = () => openExhibit(loc);
+  } else {
+    seeMoreBtn.classList.add("hidden");
+  }
+
   document.getElementById("info-panel").classList.remove("hidden");
 }
+
+function openExhibit(loc) {
+  document.getElementById("exhibit-title").textContent = loc.title;
+  document.getElementById("exhibit-description").textContent = loc.longDescription;
+
+  const gallery = document.getElementById("exhibit-gallery");
+  gallery.innerHTML = "";
+  if (loc.images && loc.images.length > 0) {
+    loc.images.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      gallery.appendChild(img);
+    });
+  }
+
+  document.getElementById("info-panel").classList.add("hidden");
+  document.querySelector(".app-header").classList.add("hidden");
+  document.getElementById("map").classList.add("hidden");
+  document.getElementById("exhibit-screen").classList.remove("hidden");
+}
+
+function closeExhibit() {
+  document.getElementById("exhibit-screen").classList.add("hidden");
+  document.querySelector(".app-header").classList.remove("hidden");
+  document.getElementById("map").classList.remove("hidden");
+  document.getElementById("info-panel").classList.remove("hidden");
+}
+
 
 function closeInfo() {
   document.getElementById("info-panel").classList.add("hidden");
@@ -237,6 +274,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("open-visited")?.addEventListener("click", openVisited);
   document.getElementById("close-visited")?.addEventListener("click", closeVisited);
   document.getElementById("close-info")?.addEventListener("click", closeInfo);
+  document.getElementById("close-exhibit")?.addEventListener("click", closeExhibit);
   document.getElementById("open-filter")?.addEventListener("click", openFilter);
     document.getElementById("close-filter")?.addEventListener("click", closeFilter);
     document.querySelectorAll("#filter-list input[type=checkbox]").forEach(cb => {
