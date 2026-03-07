@@ -298,6 +298,77 @@ button {
 #header-buttons button {
   width: 100%;
 }
+/* EXHIBIT SCREEN */
+#exhibit-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-paper);
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+#exhibit-header {
+  background: var(--panel-bg);
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+#exhibit-header h2 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.3rem;
+  margin: 0.5rem 0 0 0;
+}
+
+#close-exhibit {
+  background: none;
+  border: none;
+  color: var(--accent-brass);
+  font-size: 1rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+#exhibit-body {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#exhibit-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#exhibit-gallery img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+#exhibit-description {
+  font-family: "EB Garamond", serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink-dark);
+}
+
+#see-more-btn {
+  background: var(--accent-deep);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
 
 
 
