@@ -135,9 +135,12 @@ html, body {
 #info-image {
   width: 100%;
   max-width: 100%;
-  height: auto;
-  display: none; /* hide by default */
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: none;
 }
+
 
 /* Force inner content to respect panel width */
 #info-panel > * {
@@ -366,7 +369,9 @@ button {
 
 #exhibit-gallery img {
   width: 100%;
-  border-radius: 8px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 #exhibit-description {
