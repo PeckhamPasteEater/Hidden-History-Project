@@ -39,9 +39,9 @@ const locations = [
     lng: -122.1482255,
     category: "pre_silicon_valley",
     description: "Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/gamble-garden-1.jpg",
     longDescription: "An estate which would later be a garden established by Edwin P. Gamble, son of the co-founder of Procter and Gamble, James Gamble, in 1901. For a sum total of $6, 039, Gamble constructed a cottage and carriage house for himself on the edge of town; although now the Gamble Garden is surrounded by suburbs, it was once the very edge of Palo Alto. Gamble would have been free to expand into what was once wilderness. His daughter, Elizabeth, would ride her pony around the grounds as a youth, but soon grew into a passionate gardener. Known for her floral print dresses and generosity with garden flowers, she used her wealth to provide loans for young girls to attend college. She inherited the estate in 1939 and devoted her life to beautifying it, adding the Tea House in 1948. When she died at age ninety-two in 1981, her estate was bequeathed to the city of Palo Alto, who converted the plot into a public garden. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: ["photos/gamble-garden-1.jpg", "photos/gamble-garden-2.jpg", "photos/gamble-garden-3.jpg"]
   },
   {
     id: "hp_garage",
