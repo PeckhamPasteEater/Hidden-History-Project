@@ -93,6 +93,7 @@ html, body {
 /* INFO PANEL */
 #info-panel {
   position: fixed;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
@@ -112,10 +113,14 @@ html, body {
   box-sizing: border-box;
 }
 
+#info-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
 #close-info {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
   background: none;
   border: none;
   font-size: 1.2rem;
@@ -123,7 +128,9 @@ html, body {
   cursor: pointer;
   padding: 0;
   line-height: 1;
+  flex-shrink: 0;
 }
+
 
 /* Fix image inside info panel */
 #info-image {
