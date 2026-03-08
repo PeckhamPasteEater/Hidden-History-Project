@@ -93,7 +93,6 @@ html, body {
 /* INFO PANEL */
 #info-panel {
   position: fixed;
-  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
@@ -387,7 +386,3 @@ button {
   margin-top: 0.5rem;
   cursor: pointer;
 }
-
-
-
-
