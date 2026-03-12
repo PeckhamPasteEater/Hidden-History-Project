@@ -56,11 +56,6 @@ html, body {
   z-index: 1000;
 }
 
-#search {
-  flex: 1;
-  min-width: 100px;
-}
-
 
 .app-header h1 {
   font-family: "Libre Baskerville", serif;
@@ -75,6 +70,7 @@ html, body {
   border-radius: 999px;
   padding: 0.4rem 0.75rem;
   border: 1px solid #ccc;
+  font-size: 16px;
 }
 
 #open-visited {
