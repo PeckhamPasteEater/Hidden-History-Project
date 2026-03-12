@@ -82,7 +82,15 @@ function openLocationById(id) {
 function openInfo(loc) {
   document.getElementById("info-title").textContent = loc.title;
   document.getElementById("info-description").textContent = loc.description;
-  document.getElementById("info-image").src = loc.image || "";
+  const infoImage = document.getElementById("info-image");
+  if (loc.image) {
+    infoImage.src = loc.image;
+    infoImage.style.display = "block";
+  } else {
+    infoImage.src = "";
+    infoImage.style.display = "none";
+  }
+
 
   const seeMoreBtn = document.getElementById("see-more-btn");
   if (loc.longDescription) {
@@ -129,14 +137,9 @@ function closeInfo() {
 
 /* SEARCH */
 document.getElementById("search").addEventListener("input", e => {
-  const q = e.target.value.toLowerCase();
-  locations.forEach(loc => {
-    const marker = markers[loc.id];
-    if (!marker) return;
-    if (loc.title.toLowerCase().includes(q)) marker.addTo(map);
-    else map.removeLayer(marker);
-  });
+  applyFilters();
 });
+
 
 /* NOTIFICATIONS */
 async function notify(loc) {
@@ -239,15 +242,18 @@ function closeVisited() {
 const activeFilters = new Set(["duvenecks", "silicon_valley", "pre_silicon_valley", "ohlone"]);
 
 function applyFilters() {
+  const q = document.getElementById("search").value.toLowerCase();
   locations.forEach(loc => {
     const marker = markers[loc.id];
     if (!marker) return;
     const cats = Array.isArray(loc.category) ? loc.category : [loc.category];
-    const show = !loc.category || cats.some(c => activeFilters.has(c));
-    if (show) marker.addTo(map);
+    const categoryMatch = !loc.category || cats.some(c => activeFilters.has(c));
+    const searchMatch = loc.title.toLowerCase().includes(q);
+    if (categoryMatch && searchMatch) marker.addTo(map);
     else map.removeLayer(marker);
   });
 }
+
 
 function openFilter() {
   document.getElementById("filter-sidebar").classList.remove("hidden");
@@ -259,6 +265,11 @@ function closeFilter() {
 
 /* EVENT LISTENERS */
 window.addEventListener("DOMContentLoaded", () => {
+  if (location.hash) {
+    const id = location.hash.replace("#", "");
+    const loc = locations.find(l => l.id === id);
+    if (loc) setTimeout(() => openLocationById(id), 500);
+  }
   document.getElementById("start-app")?.addEventListener("click", async () => {
     if ("Notification" in window) {
       const permission = await Notification.requestPermission();
