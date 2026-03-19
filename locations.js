@@ -273,5 +273,104 @@ const locations = [
     image: "",
     longDescription: "A historic neighbourhood featuring houses designed by various Stanford professors, opened in 1895. In collaboration with the Museum of American Heritage.",
     images: []
-  }
+  },
+  {
+    id: "apple_store_university",
+    title: "Apple Store (University Ave)",
+    lat: 37.446361,
+    lng: -122.160752,
+    category: "",
+    description: "Click 'See More' to learn about this site.",
+    image: "",
+    longDescription: "",
+    images: []
+  },
+  {
+    id: "federal_telegraph_913_emerson",
+    title: "Federal Telegraph Co. / Elwell Electronics Research Laboratory",
+    lat: 37.441517,
+    lng: -122.157419,
+    category: "",
+    description: "Click 'See More' to learn about this site.",
+    image: "",
+    longDescription: "",
+    images: []
+  },
+  {
+    id: "meta_hq",
+    title: "Meta (Facebook) HQ",
+    lat: 37.485073,
+    lng: -122.148282,
+    category: "",
+    description: "Click 'See More' to learn about this site.",
+    image: "",
+    longDescription: "",
+    images: []
+  },
+  {
+    id: "fairchild_semiconductor",
+    title: "Site of Fairchild Semiconductor",
+    lat: 37.421585,
+    lng: -122.103307,
+    category: "",
+    description: "Click 'See More' to learn about this site.",
+    image: "",
+    longDescription: "",
+    images: []
+  },
+  {
+    id: "hp_hq",
+    title: "HP Headquarters (1501 Page Mill Rd)",
+    lat: 37.411904,
+    lng: -122.149778,
+    category: "",
+    description: "Click 'See More' to learn about this site.",
+    image: "",
+    longDescription: "",
+    images: []
+  },
+  {
+    id: "museum_of_american_heritage",
+    title: "Museum of American Heritage",
+    lat: 37.444527,
+    lng: -122.157476,
+    category: "",
+    description: "Click 'See More' to learn about this site.",
+    image: "",
+    longDescription: "",
+    images: []
+  },
+  {
+    id: "shockley_boyhood_home",
+    title: "William Shockley's Boyhood Home (959 Waverley)",
+    lat: 37.443505,
+    lng: -122.154159,
+    category: "",
+    description: "Click 'See More' to learn about this site.",
+    image: "",
+    longDescription: "",
+    images: []
+  },
+  {
+    id: "varian_associates",
+    title: "Varian Associates Building (Stanford Research Park)",
+    lat: 37.417137,
+    lng: -122.142911,
+    category: "",
+    description: "Click 'See More' to learn about this site.",
+    image: "",
+    longDescription: "",
+    images: []
+  },
+  {
+    id: "xerox_parc",
+    title: "Xerox PARC",
+    lat: 37.402499,
+    lng: -122.147288,
+    category: "",
+    description: "Click 'See More' to learn about this site.",
+    image: "",
+    longDescription: "",
+    images: []
+  },
 ];
