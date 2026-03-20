@@ -137,10 +137,11 @@ html, body {
 }
 
 /* Force inner content to respect panel width */
-#info-panel > * {
+#info-panel > *:not(img) {
   width: 100%;
   max-width: 100%;
 }
+
 
 #info-panel p {
   margin: 0;
@@ -149,7 +150,7 @@ html, body {
   word-break: break-word;
 }
 
-#info-panel * {
+#info-panel *:not(img) {
   max-width: 100%;
 }
 
