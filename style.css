@@ -131,8 +131,7 @@ html, body {
 #info-image {
   width: 100%;
   max-width: 100%;
-  max-height: 200px;
-  object-fit: cover;
+  height: auto;
   border-radius: 12px;
   display: block;
 }
@@ -365,10 +364,25 @@ button {
 
 #exhibit-gallery img {
   width: 100%;
-  max-height: 300px;
-  object-fit: cover;
+  height: auto;
   border-radius: 12px;
 }
+
+#exhibit-gallery figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#exhibit-gallery figcaption {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  text-align: center;
+  font-style: italic;
+}
+
 
 #exhibit-description {
   font-family: "EB Garamond", serif;
