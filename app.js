@@ -109,13 +109,22 @@ function openExhibit(loc) {
 
   const gallery = document.getElementById("exhibit-gallery");
   gallery.innerHTML = "";
+  
   if (loc.images && loc.images.length > 0) {
-    loc.images.forEach(src => {
+    loc.images.forEach(item => {
+      const figure = document.createElement("figure");
       const img = document.createElement("img");
-      img.src = src;
-      gallery.appendChild(img);
+      img.src = item.src;
+      figure.appendChild(img);
+      if (item.caption) {
+        const caption = document.createElement("figcaption");
+        caption.textContent = item.caption;
+        figure.appendChild(caption);
+      }
+      gallery.appendChild(figure);
     });
   }
+
 
   document.getElementById("info-panel").classList.add("hidden");
   document.querySelector(".app-header").classList.add("hidden");
