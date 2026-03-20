@@ -129,13 +129,12 @@ html, body {
 
 /* Fix image inside info panel */
 #info-image {
-  width: 100%;
-  max-width: 100%;
+  width: 51%;
   height: auto;
   border-radius: 12px;
   display: block;
+  margin: 0 auto;
 }
-
 
 /* Force inner content to respect panel width */
 #info-panel > * {
