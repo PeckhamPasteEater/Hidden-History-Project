@@ -22,17 +22,6 @@ const locations = [
     images: []
   },
   {
-    id: "test",
-    title: "Test",
-    lat: 37.38323,
-    lng: -122.09449,
-    category: null,
-    description: "Test",
-    image: "",
-    longDescription: "",
-    images: []
-  },
-  {
     id: "elizabeth_gamble_garden",
     title: "Elizabeth F. Gamble Garden",
     lat: 37.4400122,
@@ -373,4 +362,15 @@ const locations = [
     longDescription: "",
     images: []
   },
+    {
+    id: "museum_of_american_heritage_test",
+    title: "Williams House -- Test Location -- (Museum of American Heritage)",
+    lat: 37.38323,
+    lng: -122.09449,
+    category: "pre_silicon_valley",
+    description: "Now the quaint Museum of American Heritage, the Bay Area's sole pre-digital era tech museum, the Williams House is a beautiful Tudor Revival house dating to 1907. Click 'See More' to learn about this site.",
+    image: "photos/williams-house.PNG",
+    longDescription: "Designed by famed Bay Area architect Ernest Coxhead, the Williams House was completed in 1907 -- for a sum total of $6000. It was the property of Dr. Thomas Marion Williams, his wife Dora Moody Williams, and their daughters Betty and Rhona. Throughout their lives, they remained prominent figures in the Peninsula. Dr. Tom was an early Palo Alto physician and Stanford Graduate; in 1904, he started his own medical practice. From 1908 to 1910, he served as Palo Alto's health officer, and he was a member of the city council from 1923 to 1926. He is also known for his series of early travelogues, indicative of a world rapidly globalising for those who could afford it. He travelled as far as India, Sumatra, and Egypt, filming sights as iconic as the Taj Mahal and the Suez Canal on 16mm film. His family house, which features a splendid 20th-century garden cultivated by Dora, was bequeathed to the City of Palo Alto in 1989. Now rented by the Museum of American Heritage, the House showcases the technolgical innovations of the era from which it was a part. In collaboration with the Museum of American Heritage.",
+    images: ["photos/williams-house.PNG", "photos/williams-family.PNG", "photos/ernst-coxhead.PNG"]
+  }
 ];
