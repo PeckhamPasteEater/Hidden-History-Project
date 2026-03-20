@@ -129,7 +129,7 @@ html, body {
 
 /* Fix image inside info panel */
 #info-image {
-  width: 51%;
+  width: 81%;
   height: auto;
   border-radius: 12px;
   display: block;
@@ -364,7 +364,7 @@ button {
 
 
 #exhibit-gallery img {
-  width: 51%;
+  width: 81%;
   height: auto;
   border-radius: 12px;
   display: block;
