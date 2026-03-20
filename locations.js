@@ -30,7 +30,12 @@ const locations = [
     description: "Click 'See More' to learn about this site.",
     image: "photos/gamble-garden-1.JPG",
     longDescription: "An estate which would later be a garden established by Edwin P. Gamble, son of the co-founder of Procter and Gamble, James Gamble, in 1901. For a sum total of $6, 039, Gamble constructed a cottage and carriage house for himself on the edge of town; although now the Gamble Garden is surrounded by suburbs, it was once the very edge of Palo Alto. Gamble would have been free to expand into what was once wilderness. His daughter, Elizabeth, would ride her pony around the grounds as a youth, but soon grew into a passionate gardener. Known for her floral print dresses and generosity with garden flowers, she used her wealth to provide loans for young girls to attend college. She inherited the estate in 1939 and devoted her life to beautifying it, adding the Tea House in 1948. When she died at age ninety-two in 1981, her estate was bequeathed to the city of Palo Alto, who converted the plot into a public garden. In collaboration with the Museum of American Heritage.",
-    images: ["photos/gamble-garden-1.JPG", "photos/gamble-garden-2.JPG", "photos/gamble-garden-3.JPG"]
+    images: [
+      { src: "photos/gamble-garden-1.JPG", caption: "" },
+      { src: "photos/gamble-garden-2.JPG", caption: "" },
+      { src: "photos/gamble-garden-3.JPG", caption: "" }
+    ],
+
   },
   {
     id: "hp_garage",
@@ -362,7 +367,7 @@ const locations = [
     longDescription: "",
     images: []
   },
-    {
+  {
     id: "museum_of_american_heritage_test",
     title: "Williams House -- Test Location -- (Museum of American Heritage)",
     lat: 37.38323,
@@ -371,6 +376,11 @@ const locations = [
     description: "Now the quaint Museum of American Heritage, the Bay Area's sole pre-digital era tech museum, the Williams House is a beautiful Tudor Revival house dating to 1907. Click 'See More' to learn about this site.",
     image: "photos/williams-house.PNG",
     longDescription: "Designed by famed Bay Area architect Ernest Coxhead, the Williams House was completed in 1907 -- for a sum total of $6000. It was the property of Dr. Thomas Marion Williams, his wife Dora Moody Williams, and their daughters Betty and Rhona. Throughout their lives, they remained prominent figures in the Peninsula. Dr. Tom was an early Palo Alto physician and Stanford Graduate; in 1904, he started his own medical practice. From 1908 to 1910, he served as Palo Alto's health officer, and he was a member of the city council from 1923 to 1926. He is also known for his series of early travelogues, indicative of a world rapidly globalising for those who could afford it. He travelled as far as India, Sumatra, and Egypt, filming sights as iconic as the Taj Mahal and the Suez Canal on 16mm film. His family house, which features a splendid 20th-century garden cultivated by Dora, was bequeathed to the City of Palo Alto in 1989. Now rented by the Museum of American Heritage, the House showcases the technolgical innovations of the era from which it was a part. In collaboration with the Museum of American Heritage.",
-    images: ["photos/williams-house.PNG", "photos/williams-family.PNG", "photos/ernst-coxhead.PNG"]
-  }
+    images: [
+      { src: "photos/williams-house.PNG", caption: "The Williams House" },
+      { src: "photos/williams-family.PNG", caption: "The Williams Family" },
+      { src: "photos/ernst-coxhead.PNG", caption: "Architect Ernst Coxhead" }
+    ]
+  },
+
 ];
