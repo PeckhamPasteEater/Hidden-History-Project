@@ -363,10 +363,13 @@ button {
 }
 
 #exhibit-gallery img {
-  width: 100%;
+  width: 51%;
   height: auto;
   border-radius: 12px;
+  display: block;
+  margin: 0 auto;
 }
+
 
 #exhibit-gallery figure {
   margin: 0;
