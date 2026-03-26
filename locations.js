@@ -164,7 +164,7 @@ const locations = [
     lat: 37.35055,
     lng: -122.16010,
     category: "duvenecks",
-    description: "A Click 'See More' to learn about this site.",
+    description: "A barrier-breaking site nestled unassumedly in Los Altos Hills; the site of the US Pacific Coast's first racially integrated summercamp, refuge for those fleeing WWII, and the United Farm Workers. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with Hidden Villa",
     images: []
