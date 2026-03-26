@@ -335,12 +335,12 @@ const locations = [
     images: ["photos/williams-house.PNG", "photos/williams-family.PNG", "photos/ernst-coxhead.PNG"]
   },
   {
-    id: "shockley_boyhood_home",
-    title: "William Shockley's Boyhood Home (959 Waverley)",
+    id: "shockley_boyhood_house",
+    title: "William Shockley's Boyhood House (959 Waverley)",
     lat: 37.443505,
     lng: -122.154159,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "The house in which William Shockley, Nobel Prize winner and co-inventor of the transistor, was raised. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "",
     images: []
@@ -351,7 +351,7 @@ const locations = [
     lat: 37.417137,
     lng: -122.142911,
     category: "silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "Considered by some to be the birthplace of Silicon Valley. The first tenant of the Stanford Research Park. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "",
     images: []
@@ -362,7 +362,7 @@ const locations = [
     lat: 37.402499,
     lng: -122.147288,
     category: "silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "Considered by many to be the birthplace of modern computing, whose 1970s innovations changed the computing landscape. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "",
     images: []
