@@ -109,9 +109,9 @@ const locations = [
     lat: 37.4459921,
     lng: -122.1673342,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A reminder of a time when Palo Alto's entire water supply could be housed in a massive cylindrical tank. Constructed in 1910, featuring electronic mechanisation very advanced for its time. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Placeholder. In collaboration with the Museum of American Heritage",
+    longDescription: "Palo Alto has always been a forward-thinking city, and the Tower Well, which now sits conspicuously in a park of native plants, is a fascinating reminder of this. In 1896, Palo Alto was a town whose chief industry was livestock grazing -- and whose water bill was $1 a month. Still, that year the town became one of America's first settlements to run its own water utility. In 1910, the Well was constructed to store the town's entire water supply, both as potable water for the growing populace and to fight fire. Its walls are built of reinforced concrete, and its tank can hold 155,000 gallons of water. It distributed and regulated water using an electronic mechanism that could control capacity.  In collaboration with the Museum of American Heritage",
     images: []
   },
   {
