@@ -164,18 +164,18 @@ const locations = [
     lat: 37.35055,
     lng: -122.16010,
     category: "duvenecks",
-    description: "A barrier-breaking site nestled unassumedly in Los Altos Hills; the site of the US Pacific Coast's first racially integrated summercamp, refuge for those fleeing WWII, and the United Farm Workers. Click 'See More' to learn about this site.",
+    description: "An incredible site nestled unassumedly in Los Altos Hills; the site of the US Pacific Coast's first racially integrated summercamp, refuge for those fleeing WWII, and the United Farm Workers. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with Hidden Villa",
     images: []
   },
   {
     id: "hostess_house",
-    title: "Hostess House (now a restaurant)",
+    title: "Hostess House",
     lat: 37.4430264,
     lng: -122.1655246,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A relic of the First World War; where soldiers in training would meet their families. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
     images: []
@@ -186,7 +186,7 @@ const locations = [
     lat: 37.44655,
     lng: -122.15673,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A beautiful Victorian house, one of the most ornate of early Palo Alto, constructed in 1894. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
     images: []
@@ -197,7 +197,7 @@ const locations = [
     lat: 37.4462943,
     lng: -122.1625154,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "The beautiful Spanish Revival former headquarters of the Palo Alto Fire and Police Station, built in 1927. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
     images: []
@@ -208,7 +208,7 @@ const locations = [
     lat: 37.4530237,
     lng: -122.1480158,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A modest cottage constructged in 1889 that was moved intact to its present location in 1910. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
     images: []
@@ -219,18 +219,18 @@ const locations = [
     lat: 37.4458095,
     lng: -122.1592599,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A Mission Revival-style building designed by famed architect Birge Clark, constructed in 1932. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
     images: []
   },
   {
     id: "church_residence",
-    title: "St. Thomas Aquinas Church Residence",
+    title: "St. Thomas Aquinas Church",
     lat: 37.4451864,
     lng: -122.1569313,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "The oldest church in Palo Alto, founded in 1901. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
     images: []
@@ -241,7 +241,7 @@ const locations = [
     lat: 37.4575089,
     lng: -122.1075783,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A small house constructed in 1937 in the Spanish Revival style, right off the San Francisco Bay. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
     images: []
@@ -252,7 +252,7 @@ const locations = [
     lat: 37.4491051,
     lng: -122.1609048,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "The first hospital in Palo Alto, founded following a typhoid epidemic between 1902-1903. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
     images: []
@@ -263,7 +263,7 @@ const locations = [
     lat: 37.44161,
     lng: -122.15413,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "An area settled by Stanford faculty in the early 1890s. Many of its buildings date back well over a century and feature unique architecture. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "A historic neighbourhood featuring houses designed by various Stanford professors, opened in 1895. In collaboration with the Museum of American Heritage.",
     images: []
@@ -274,7 +274,7 @@ const locations = [
     lat: 37.446361,
     lng: -122.160752,
     category: "silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "One of globally few 'prototype' stores for new Apple products, and the store Steve Jobs frequented -- and even partially designed. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "",
     images: []
@@ -285,7 +285,7 @@ const locations = [
     lat: 37.441517,
     lng: -122.157419,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "One of the contributors to Silicon Valley's development, as early as 1909; it witnessed breakthroughs in wireless technology under Cyril F. Elwell. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "",
     images: []
@@ -296,7 +296,7 @@ const locations = [
     lat: 37.485073,
     lng: -122.148282,
     category: "silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A sprawling, 250-acre campus including more than 30 buildings, housing one of the world's largest companies. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "",
     images: []
@@ -307,7 +307,7 @@ const locations = [
     lat: 37.421585,
     lng: -122.103307,
     category: "silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "The laboratory wherein Dr. Robert Noyce invented the first the commercially viable integrated circuit in 1959. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "",
     images: []
@@ -318,7 +318,7 @@ const locations = [
     lat: 37.411904,
     lng: -122.149778,
     category: "silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "The headquarters of Hewlett-Packard dating from 1957. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "",
     images: []
