@@ -5,9 +5,9 @@ const locations = [
     lat: 37.44472,
     lng: -122.15298,
     category: "duvenecks",
-    description: "Click 'See More' to learn about this site.",
+    description: "Part 1 in a series of sites celebrating the founders of Hidden Villa and prominent South Bay historical figures and socialites, the Duvenecks. This site follows their arrival in the Bay Area. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Part 1 of a series of sites celebrating the founders of Hidden Villa, the Duvenecks. The Duvenecks, born in to East Coast privilege, had visited, and, as such, been enchanted by California in their travels around the world. However, it wasn't until a particularly harsh winter in their native Boston that they decided to officially light out for the West. As World War I raged, they settled in temperate Santa Barbara for a short period, only to move to Carmel and later Tacoma, Washington on account of Frank's enlisting as an engineer in the military. Soon, Frank was sent to the European theatre of war, but not before ensuring Josephine learned how to drive a Ford Model T. Eight months pregnant with her third child, Josephine brought the family to Palo Alto in 1918, then and still a university town, albeit then one of under 5,000 residents. Josephine rented a house here, at the crook of Addison and Cowper.",
+    longDescription: "Born into East Coast privilege, the Duvenecks had visited, and, as such, been enchanted by California in their travels around the world. However, it wasn't until a particularly harsh winter in their native Boston that they decided to officially light out for the West. As World War I raged, they settled in temperate Santa Barbara for a short period, only to move to Carmel and later Tacoma, Washington on account of Frank's enlisting as an engineer in the military. Soon, Frank was sent to the European theatre of war, but not before ensuring Josephine learned how to drive a Ford Model T. Eight months pregnant with her third child, Josephine brought the family to Palo Alto in 1918, then and still a university town, albeit then one of under 5,000 residents. Josephine rented a house here, at the crook of Addison and Cowper.",
     images: []
   },
   {
@@ -16,9 +16,9 @@ const locations = [
     lat: 37.44855,
     lng: -122.14005,
     category: "duvenecks",
-    description: "Click 'See More' to learn about this site.",
+    description: "Part 2 in a series of sites celebrating the founders of Hidden Villa and prominent South Bay historical figures and socialites, the Duvenecks. This site follows their return to the Bay Area, following the events detailed in 'Duvenecks Part 1'. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Part 2 of a series of sites celebrating the founders of Hidden Villa, the Duvenecks. Read preceding sites for complete narrative. Frank was only away for one year. Much had changed; after giving birth to Hope in Palo Alto, Josephine had also gone away to care for Frank's father in Cincinnati, Ohio, who had developed cancer due to a lifetime of smoking. When Josephine returned, she bought a house here on Newell Road for a sum total of $7,500. What is now South Bay suburban sprawl was once the city's limit. The Duvenecks, standing here, would be perched on the edge of human settlement. The year was 1919; as a member of the occupying force of Germany, Frank remained after the armistice until August. When he returned, he saw his daughter for the first time.",
+    longDescription: "Frank was only away for one year. Much had changed; after giving birth to Hope in Palo Alto, Josephine had also gone away to care for Frank's father in Cincinnati, Ohio, who had developed cancer due to a lifetime of smoking. When Josephine returned, she bought a house here on Newell Road for a sum total of $7,500. What is now South Bay suburban sprawl was once the city's limit. The Duvenecks, standing here, would be perched on the edge of human settlement. The year was 1919; as a member of the occupying force of Germany, Frank remained after the armistice until August. When he returned, he saw his daughter for the first time.",
     images: []
   },
   {
@@ -27,7 +27,7 @@ const locations = [
     lat: 37.4400122,
     lng: -122.1482255,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A beautiful garden established by the son of the co-founder of Procter and Gamble in 1901. Click 'See More' to learn about this site.",
     image: "photos/gamble-garden-1.JPG",
     longDescription: "An estate which would later be a garden established by Edwin P. Gamble, son of the co-founder of Procter and Gamble, James Gamble, in 1901. For a sum total of $6, 039, Gamble constructed a cottage and carriage house for himself on the edge of town; although now the Gamble Garden is surrounded by suburbs, it was once the very edge of Palo Alto. Gamble would have been free to expand into what was once wilderness. His daughter, Elizabeth, would ride her pony around the grounds as a youth, but soon grew into a passionate gardener. Known for her floral print dresses and generosity with garden flowers, she used her wealth to provide loans for young girls to attend college. She inherited the estate in 1939 and devoted her life to beautifying it, adding the Tea House in 1948. When she died at age ninety-two in 1981, her estate was bequeathed to the city of Palo Alto, who converted the plot into a public garden. In collaboration with the Museum of American Heritage.",
     images: [
@@ -43,7 +43,7 @@ const locations = [
     lat: 37.44307,
     lng: -122.15481,
     category: "silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "Considered the 'birthplace of Silicon Valley' -- the storied garage from which HP was founded. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Widely considered the birthplace of Silicon Valley. Constructed at an unknown date behind a house dating to 1905. While searching for rentals which contained both a workshop and ample living space, Bill Hewlett and Dave Packard discovered the Addison Avenue property. Together, they shared the $45 per month rent, and used their garage as a space for research, development, and prototyping, including for the Model 200A audio oscillator, HP's first product. Soon, after having named the company, they outgrew their garage, moving into a Page Mill Road property. HP re-aquired the Garage property in 2000, and has preserved its original 1939 conditions. In collaboration with the Museum of American Heritage.",
     images: []
@@ -54,7 +54,7 @@ const locations = [
     lat: 37.44361,
     lng: -122.15722,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "The site of Palo Alto's first group medical practice, founded in 1932. The building now houses the Palo Alto Museum. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "The original site of The Palo Alto Medical Clinic, the first group medical practice in Palo Alto. Founded by Dr. Russell Lee, a graduate of Berkeley and Stanford Medical School, and Dr. Thomas Williams, who later hired Dr. EB Roth and Dr. Esther B. Clark--of park fame. After more shifts in staff, they formed the Palo Alto Medical Clinic, Ltd. in the early thirties, often conflated by many at the time with socialised medicine. They outgrew their original quarters on Bryant, and constructed the Spanish Eclectic Roth Building under the guide of architect--and sister of Dr. Clark--Birge Clark. Centred around a courtyard are wings and rooms that once were doctor's offices or examination rooms. In 2026, it became the Palo Alto History Museum. In collaboration with the Museum of American Heritage.",
     images: []
@@ -65,7 +65,7 @@ const locations = [
     lat: 37.4450694,
     lng: -122.16270,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "The famed Neoclassical cinema on University Avenue, opened in 1925. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Beloved historical theatre, opened 1925. Constructed in the Neoclassical movie palace style, a trend aiming to dazzle viewers not only through film but through ambience, for only $250,000, the New Stanford Theatre became the Bay Area's expression of the movie craze sweeping the world. For many years, the Theatre thrived; then came the 1960s, wherein the building fell into disrepair as modern cinemas overshadowed it. In 1987, David Woodley Packard, the son of HP's David Packard, purchased and renovated the theatre for over $6,000,000. With much accuracy, the original theatre was revived. Today, it thrives, showing classic, often black-and-white, or even silent films to an audience of Bay Area film enthusiasts. In collaboration with the Museum of American Heritage.",
     images: []
@@ -76,7 +76,7 @@ const locations = [
     lat: 37.4245556,
     lng: -122.1474444,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "The oldest surviving building from Mayfield, one of the villages from which Palo Alto was built. One of the Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Historical house and barn dating to Palo Alto's predecessor village, Mayfield. Robert Norton Kee purchased this land, and as the proprietor of a transfer business, in 1889, he constructed a barn in which to house his horses, apparently for a sum total of $3, 500. He also purchased a building, once the G. Bracchi grocery, in 1893, which would become the modern Kee House. After shifting owners as a private residence as the village of Mayfield expanded into the City of Palo Alto, the was divided into apartments in the 60s. Unfortunately, the barn was destroyed in 1938, when it was the final surviving 19th century barn of Mayfield and the first barn in the College Terrace neighbourhood. The house remains a residence to this day. In collaboration with the Museum of American Heritage.",
     images: []
@@ -87,7 +87,7 @@ const locations = [
     lat: 37.453056,
     lng: -122.153056,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A striking Roman Revival edifice constructed in 1904 for the heir to the Swift meatpacking empire, part of the Big Four meatpacking monopolies. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Arguably the most characteristic and striking house on University Avenue. As heir to one of the Big Four meatpacking monopolies, In 1904, John Adams Squire and his wife Georgiana commissioned San Francisco architect T. Paterson Ross to build their mansion, which costed $18, 000. Ross was a native of Edinburgh, and emigrated to San Francisco in 1890 as a twelve-year-old. Due to his work in San Francisco, he had become an acclaimed architect. For Squire and his wife, he created a great Roman Revival edifice, complete with a palm-lined drive. The interior is spacious and comfortable, while, in the rear, there is housed a swimming pool. When demolition threatened Squire House in 1973, a citizen's committee raised $90, 000, and in tandem with a $118, 000 contribution from the City, the house was restored. It is listed on the National Register of Historic Places. In collaboration with the Museum of American Heritage.",
     images: []
@@ -98,7 +98,7 @@ const locations = [
     lat: 37.4160139,
     lng: -122.1635528,
     category: "silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "Frank Lloyd Wright's first work in the Bay Area, where he experimented with many of the techniques he would make famous in later works, such as the Guggenheim. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Also known as the Honeycomb House: Frank Lloyd Wright's first work in the San Francisco area. One of the most iconic American architects in history, Wright designed the Hanna House for Stanford professor Paul Hanna and his wife Jean in 1936. Hinged on Wright's seminal Usonian reformist ideals: houses that prioritised affordability and spatial flow in design, to ultimately create a more enlightened society. These techniques are evident in the lack of right angles in the House's floor plan, emphasising open space. Ideas experimented with in the Hanna House would later bloom into Wright masterpieces, such as that of the Guggenheim. Hanna reached Wright after being enthralled by Wright's book, Modern Architecture. The house developed over the course of 25 years, and even survived the 1989 Loma Prieta earthquake despite its location on the San Andreas Fault; it incurred significant damage, yet could certainly be repaired. In 1974, the house was donated to Stanford University. In collaboration with the Museum of American Heritage",
     images: []
@@ -120,7 +120,7 @@ const locations = [
     lat: 37.396311,
     lng: -122.161784,
     category: "pre_silicon_valley",
-    description: "Click 'See More' to learn about this site.",
+    description: "A genuine oddity: a tall, medieval spire poking out of the side of Old Page Mill Road constructed by a French recluse. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder.",
     images: []
@@ -131,7 +131,7 @@ const locations = [
     lat: 37.36523,
     lng: -122.11725,
     category: ["ohlone", "duvenecks"],
-    description: "Click 'See More' to learn about this site.",
+    description: "Once a village constructed by the Ohlone, the Native American tribe that has lived in present-day Silicon Valley for at least 10,000 years. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with Hidden Villa",
     images: []
@@ -142,7 +142,7 @@ const locations = [
     lat: 37.3153,
     lng: -122.1882,
     category: ["ohlone", "duvenecks"],
-    description: "Click 'See More' to learn about this site.",
+    description: "Part 2 in a series of sites celebrating the founders of Hidden Villa and prominent South Bay historical figures and socialites, the Duvenecks. This site follows the their purchase of Hidden Villa. Read Duvenecks Part 1 and 2 for more context. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with Hidden Villa",
     images: []
@@ -153,7 +153,7 @@ const locations = [
     lat: 37.35011,
     lng: -122.16298,
     category: "duvenecks",
-    description: "Click 'See More' to learn about this site.",
+    description: "Part 2 in a series of sites celebrating the founders of Hidden Villa and prominent South Bay historical figures and socialites, the Duvenecks. This site follows the their purchase of Hidden Villa. Read Duvenecks Part 1 and 2 for more context.Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Part 3 in a series of sites celebrating the founders of Hidden Villa, the Duvenecks. Read preceding sites for complete narrative. The Duvenecks spent any spare time that they had outdoors. In their Ford Model T, they would cruise through the then-treacherous Santa Cruz mountains, camping on hillsides and in clearings. They had always dreamed of owning their own open space. In 1924, they found it on a routine drive down Moody Road. Spying the familiar metal flags as well as a 'for sale' sign, they were intrigued: they turned in, and discovered the thousand-acre lot that would serve both as their home and a setting for some of the Bay Area's most significant history: Hidden Villa. Amazed by its pristine, unblemished nature, the Duvenecks purchased the lot. They completed the Duveneck House in 1929, completed in a Spanish colonial style, and laden with intricate ironwork. In collaboration with Hidden Villa",
     images: []
@@ -164,7 +164,7 @@ const locations = [
     lat: 37.35055,
     lng: -122.16010,
     category: "duvenecks",
-    description: "Click 'See More' to learn about this site.",
+    description: "A Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Placeholder. In collaboration with Hidden Villa",
     images: []
