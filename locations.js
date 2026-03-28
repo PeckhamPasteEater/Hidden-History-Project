@@ -120,9 +120,9 @@ const locations = [
     lat: 37.396311,
     lng: -122.161784,
     category: "pre_silicon_valley",
-    description: "A genuine oddity: a tall, medieval spire poking out of the side of Old Page Mill Road constructed by a French recluse. Click 'See More' to learn about this site.",
+    description: "A genuine oddity: a tall, medieval spire jutting out of the side of Old Page Mill Road constructed by a French recluse. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Placeholder.",
+    longDescription: "The Frenchman's Tower is starkly out-of-place -- perhaps that's why there are so many stories about the engimatic spire placed awkwardly by the side of Old Page Mill Road. It was built in 1875 by Paulin Caperon, a French refugee who fled his country after the Franco-Prussian War. Earlier that year, he had assumed the name Peter Coutts and moved to Mayfield, one of the villages which would come together to form Palo Alto. Its Gothic windows and crenels, slits traditionally used to shield archers, resemble Medieval fortifications constructed centuries earlier in Caperot's continent of origin. The second floor acted as Caperon's water tank, while the first floor was a study and library. Interestingly, the building lacked doors; Caperon enterred through a window. Suddenly, in 1882, Caperon disappeared without notifying his neighbours. The reclusive man had decided to return to his native France and his properties were liquidated. Still, the tower's many curiosities, not least its tunnels, which were born to provide water to Caperon's farm and his lake, are the subject of Silicon Valley urban myth. Some in Caperon's time believed it harboured the French empress, a charge Caperon never denied,   ",
     images: []
   },
   {
