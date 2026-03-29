@@ -177,7 +177,7 @@ const locations = [
     category: "pre_silicon_valley",
     description: "A relic of the First World War; where soldiers in training would meet their families. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
+    longDescription: "The Hostess House is a relic of the Great War, a war whose impact would reach even the small township south of San Francisco. Built in 1918, the house was originally located in Menlo Park as part of Camp Fremont, a massive military camp built soon after the US enterred WWI in 1917. Julia Morgan, also the first woman in California to be certified in the field of architecture and architect of Hearst Castle, was commissioned to design the House as a place for soldiers to meet their loved ones. Soon after, the House became a favourite for the soldiers; the same year it was constructed, marriages began to be held in the building. However, as WWI concluded, the entirety of Camp Fremont was dismantled; only two buildings remained, one of which was the Hostess House. The city of Palo Alto purchased the House, moved it to its current University Ave location, and ran it as a community centre under the care of Josephine Duveneck of Hidden Villa fame. Now, it houses the MacArthur Park restaurant, emblematic of a changing city -- but one whose roots are ever-present. In collaboration with the Museum of American Heritage.",
     images: []
   },
   {
@@ -188,7 +188,7 @@ const locations = [
     category: "pre_silicon_valley",
     description: "A beautiful Victorian house, one of the most ornate of early Palo Alto, constructed in 1894. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
+    longDescription: "The Downing House is a splendid work of architecture, whose distinctive columns and witch's hat tower assert its long-standing presence amidst Cowper Avenue suburbia. Commissioned by T.B Downing and his wife Margaret Sandford, the house was constructed in 1894 by builder W. Matlock Campbell. Downing was a prominent investor in the burgeoning property market of early Palo Alto, which coincided with the initial growth of the university that had recently opened on Leland Stanford's ranch. As was typical of many American socialites of his time, he participated in local politics as a Placeholder. In collaboration with the Museum of American Heritage.",
     images: []
   },
   {
