@@ -199,7 +199,7 @@ const locations = [
     category: "pre_silicon_valley",
     description: "The beautiful Spanish Revival former headquarters of the Palo Alto Fire and Police Station, built in 1927. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
+    longDescription: "The Bryant House on 440-450 Bryant Street speaks to Palo Alto's early governance. Constructed in 1927, it first served both as the fire station -- and police station. It was designed by well-known Palo Alto architect Birge Clark, who also designed hundreds of buildings that now make up central Palo Alto and its surroundings. His conscious Colonial Revival design references California's Spanish roots, and its ironwork, noticeable in its windows and porches, is elegant and skillful. Eventually, Palo Alto grew too large to be policed by solely the Bryant House, and it was vacated in 1970. Now it serves as Avenidas, a facility providing services to the elderly. Its continued presence crucially reminds us of that from which modern Palo Alto came, a city that once could be policed from one Spanish Colonial building. In collaboration with the Museum of American Heritage.",
     images: []
   },
   {
@@ -210,7 +210,7 @@ const locations = [
     category: "pre_silicon_valley",
     description: "A modest cottage constructged in 1889 that was moved intact to its present location in 1910. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
+    longDescription: "The Ashby House is . In collaboration with the Museum of American Heritage.",
     images: []
   },
   {
