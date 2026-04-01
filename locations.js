@@ -249,12 +249,12 @@ const locations = [
   {
     id: "pa_first_hospital",
     title: "Palo Alto's First Hospital",
-    lat: 37.4491051,
-    lng: -122.1609048,
+    lat: 37.449167,
+    lng: -122.160783,
     category: "pre_silicon_valley",
     description: "The first hospital in Palo Alto, founded following a typhoid epidemic between 1902-1903. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
+    longDescription: "Though today the building is largely unidentiable, Palo Alto's first functioning hospital laid at the crook of Lytton and Cowper. It was first conceived of out of a townwide sense of great urgency; Stanford and Palo Alto, then comprised of 3,500 residents, were facing a typhoid epidemic, likely triggered by contaminated milk. By late April that year, over 130 cases had been reported. What ensued was unprecedented; the town, under the leadership of Professor William F. Snow, rallied for improvement in public sanitation and health. As a direct result, the Students Guild Hospital was founded, serving as the first permanent hospital in Palo Alto. Set in a three-story Victorian house, the hospital served Palo Alto for a decade until it was replaced by a larger building elsewhere. Despite its short lifespan, the Students' Guild Hospital was pivotal in keeping the impact of a potentially catastrophic epidemic minimal. In collaboration with the Museum of American Heritage.",
     images: []
   },
   {
