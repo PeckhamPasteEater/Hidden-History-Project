@@ -208,9 +208,9 @@ const locations = [
     lat: 37.4530237,
     lng: -122.1480158,
     category: "pre_silicon_valley",
-    description: "A modest cottage constructged in 1889 that was moved intact to its present location in 1910. Click 'See More' to learn about this site.",
+    description: "A modest cottage constructed in 1889 that was moved intact to its present location in 1910. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "The Ashby House is . In collaboration with the Museum of American Heritage.",
+    longDescription: "The Ashby House at 1145 Forest Avenue is perhaps best characterised by its simplicity. Built in 1889 in the Victorian style, it was originally located down the street, at the end of the Forest Avenue block. In this site, the current site of 1033-1035 Forest, laid a well and pump from which the residents of the plot drew their water. The land was purchased in 1890 by Ella and Delmar Ashby; as the villages of the peninsula remained agrarian, land was ripe for development. Ashby hoped to make his mark by developing a cannery on his plot; however, these plans never materialised. Nonetheless, in 1910, the house would meet a very different fate: it would learn the art of mobility. Likely using a rudimentary system of horses and ropes, the Ashby cottage was moved intact to its present site. In 1919, the city of Palo Alto, which had been steadily expanding, annexed the cottage and the surrounding neighbourhood. It now lies inconspicuously today, a slice of the 19th century in contemporary Palo Alto. In collaboration with the Museum of American Heritage.",
     images: []
   },
   {
