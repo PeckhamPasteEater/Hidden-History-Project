@@ -269,25 +269,14 @@ const locations = [
     images: []
   },
   {
-    id: "apple_store_university",
-    title: "Apple Store (University Ave)",
-    lat: 37.446361,
-    lng: -122.160752,
-    category: "silicon_valley",
-    description: "One of globally few 'prototype' stores for new Apple products, and the store Steve Jobs frequented -- and even partially designed. Click 'See More' to learn about this site.",
-    image: "",
-    longDescription: "",
-    images: []
-  },
-  {
     id: "federal_telegraph_913_emerson",
     title: "Federal Telegraph Co. / Elwell Electronics Research Laboratory",
     lat: 37.441517,
     lng: -122.157419,
     category: "pre_silicon_valley",
-    description: "One of the contributors to Silicon Valley's development, as early as 1909; it witnessed breakthroughs in wireless technology under Cyril F. Elwell. Click 'See More' to learn about this site.",
+    description: "The site of the core contributors to Silicon Valley's development, as early as 1909; it witnessed breakthroughs in wireless technology under Cyril F. Elwell. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "",
+    longDescription: "To no the story of Federal Telegraph is to know the roots of Silicon Valley. Long before HP, or venture capital, or any Apple prototype, in an unassuming house on Emerson Street, history was being made. The laboratory on Emerson was founded by the Federal Telegraph Company: under the leadership of Cyril F. Elwell, a Stanford graduate, the Company gave Palo Alto its first taste of large, global industry as it developed naval communication technology in the Great War. But its even greater significance would be less conspicuous; the year was 1912, and early radio researcher Lee De Forest had made a groundbreaking discovery. He planned to exhibit it to the world. In a demonstration that is now famous, De Forest placed a pocketwatch whose ticks were quietly audible and connected it to his own invention: the triode vacuum tube, also known as the Audion. When he connected his Audion to a telephone earpiece -- which then fed into the horn of a record player -- he demoed for his audience his own shocking discovery: everyone in the room could hear the watch's ticks. Out of the tiny house on Emerson, he had made an advancement that had turned electronics from a theoretical field to a tangible one. However, Federal Telegraph's success also meant the end of its tenure in the small Palo Alto house; in 1916, it moved to a much larger facility on El Camino, and remained there until 1931, when operations were shifted to New Jersey to save costs. Still, over a century after De Forest's experiments, when a mobile phone call is second nature, it's important to recognise the significance of a small, plank-lined house that once lied on Emerson Street.",
     images: []
   },
   {
