@@ -298,7 +298,7 @@ const locations = [
     category: "silicon_valley",
     description: "The laboratory wherein Dr. Robert Noyce invented the first the commercially viable integrated circuit in 1959. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "",
+    longDescription: "Lying on old Charleston Road, a thoroughfare far older than the suburbs that now surround it, is a building that looks, at first glance -- exactly like the rest of the office-park Palo Alto suburb it's nestled in. Look closely, and you'll see a bronze plaque, albeit one perhaps too tedious to leave the car to read. But this office block is not like all the others; it is the birthplace of the technology within everything we can conceivably consider an electronic device: the commercial integrated circuit -- or microchip. Fairchild Semiconductor was founded in 1957 by the so-called 'Traitorous Eight' who broke away from nearby Shockley Semiconductor in order to pursue research into silicon semiconducting, which Shockley planned to discontinue. Two years later, Fairchild scientist Jean Hoerni unveiled his planar process, a step which would facilitate mass-production of transistors, once contraptions that required almost artisanal attention. After slightly over a week, Robert Noyce had successfully applied Hoerni's thought to his own discipline: he succeeded in making an integrated circuit that was practical and capable of mass-production. Later, when Noyce founded Intel in 1968, he would diffuse his technology throughout the world. Now, residing in every electronic device -- whether it be a phone, or a car, or a medical tool -- is a descendant of his prototype, born in an unassuming office off of East Charleston.",
     images: []
   },
   {
