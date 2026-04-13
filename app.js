@@ -41,6 +41,18 @@ L.tileLayer(
   }
 ).addTo(map);
 
+/* ZOOM LABEL VISIBILITY */
+function updateLabelVisibility() {
+  const mapEl = document.getElementById("map");
+  if (map.getZoom() >= 15) {
+    mapEl.classList.add("show-labels");
+  } else {
+    mapEl.classList.remove("show-labels");
+  }
+}
+
+map.on("zoomend", updateLabelVisibility);
+
 /* MARKERS */
 const markers = {};
 const bounds = [];
@@ -63,6 +75,14 @@ if (bounds.length > 0) {
   map.fitBounds(bounds, { padding: [40, 40] });
 } else {
   map.setView([51.505, -0.09], 13);
+}
+
+/* VISIT PROGRESS */
+function updateProgress() {
+  const visitedCount = Object.keys(getVisited()).length;
+  const totalCount = locations.filter(l => typeof l.lat === "number").length;
+  const el = document.getElementById("visit-progress");
+  if (el) el.textContent = `${visitedCount} / ${totalCount} visited`;
 }
 
 /* OPEN LOCATION FROM NOTIFICATION */
@@ -102,7 +122,7 @@ function openInfo(loc) {
     seeMoreBtn.classList.add("hidden");
   }
 
-  document.getElementById("info-panel").classList.remove("hidden");
+  document.getElementById("info-panel").classList.add("open");
 }
 
 function openExhibit(loc) {
@@ -127,9 +147,10 @@ function openExhibit(loc) {
     });
   }
 
-  document.getElementById("info-panel").classList.add("hidden");
+  document.getElementById("info-panel").classList.remove("open");
   document.querySelector(".app-header").classList.add("hidden");
   document.getElementById("map").classList.add("hidden");
+  document.getElementById("bottom-toolbar").classList.add("hidden");
   document.getElementById("exhibit-screen").classList.remove("hidden");
 }
 
@@ -137,11 +158,13 @@ function closeExhibit() {
   document.getElementById("exhibit-screen").classList.add("hidden");
   document.querySelector(".app-header").classList.remove("hidden");
   document.getElementById("map").classList.remove("hidden");
-  document.getElementById("info-panel").classList.remove("hidden");
+  document.getElementById("bottom-toolbar").classList.remove("hidden");
+  document.getElementById("info-panel").classList.add("open");
+  map.invalidateSize();
 }
 
 function closeInfo() {
-  document.getElementById("info-panel").classList.add("hidden");
+  document.getElementById("info-panel").classList.remove("open");
 }
 
 /* SEARCH */
@@ -279,6 +302,8 @@ function markVisited(loc) {
 
   const marker = markers[loc.id];
   if (marker) marker.setIcon(visitedIcon);
+
+  updateProgress();
 }
 
 function openVisited() {
@@ -328,14 +353,19 @@ function applyFilters() {
 
 function openFilter() {
   document.getElementById("filter-sidebar").classList.remove("hidden");
+  document.getElementById("filter-overlay").classList.add("active");
 }
 
 function closeFilter() {
   document.getElementById("filter-sidebar").classList.add("hidden");
+  document.getElementById("filter-overlay").classList.remove("active");
 }
 
 /* EVENT LISTENERS */
 window.addEventListener("DOMContentLoaded", () => {
+  updateProgress();
+  updateLabelVisibility();
+
   if (location.hash) {
     const id = location.hash.replace("#", "");
     const loc = locations.find(l => l.id === id);
@@ -372,6 +402,8 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("close-exhibit")?.addEventListener("click", closeExhibit);
   document.getElementById("open-filter")?.addEventListener("click", openFilter);
   document.getElementById("close-filter")?.addEventListener("click", closeFilter);
+  document.getElementById("filter-overlay")?.addEventListener("click", closeFilter);
+
   document.querySelectorAll("#filter-list input[type=checkbox]").forEach(cb => {
     cb.addEventListener("change", () => {
       if (cb.checked) activeFilters.add(cb.dataset.category);
