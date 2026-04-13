@@ -10,6 +10,9 @@ function saveVisited(data) {
 
 let notified = new Set();
 
+// Detect Capacitor native runtime
+const isNative = typeof Capacitor !== "undefined" && Capacitor.isNativePlatform();
+
 const defaultIcon = L.icon({
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
@@ -30,7 +33,7 @@ let notificationsEnabled = false;
 const map = L.map("map");
 
 L.tileLayer(
-  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", 
+  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
   {
     attribution: "&copy; OpenStreetMap &copy; CARTO",
     subdomains: "abcd",
@@ -91,7 +94,6 @@ function openInfo(loc) {
     infoImage.style.display = "none";
   }
 
-
   const seeMoreBtn = document.getElementById("see-more-btn");
   if (loc.longDescription) {
     seeMoreBtn.classList.remove("hidden");
@@ -109,7 +111,7 @@ function openExhibit(loc) {
 
   const gallery = document.getElementById("exhibit-gallery");
   gallery.innerHTML = "";
-  
+
   if (loc.images && loc.images.length > 0) {
     loc.images.forEach(item => {
       const figure = document.createElement("figure");
@@ -125,7 +127,6 @@ function openExhibit(loc) {
     });
   }
 
-
   document.getElementById("info-panel").classList.add("hidden");
   document.querySelector(".app-header").classList.add("hidden");
   document.getElementById("map").classList.add("hidden");
@@ -139,64 +140,126 @@ function closeExhibit() {
   document.getElementById("info-panel").classList.remove("hidden");
 }
 
-
 function closeInfo() {
   document.getElementById("info-panel").classList.add("hidden");
 }
 
 /* SEARCH */
-document.getElementById("search").addEventListener("input", e => {
+document.getElementById("search").addEventListener("input", () => {
   applyFilters();
 });
 
 
 /* NOTIFICATIONS */
+
+// Produces a stable 32-bit integer ID from a string (required by LocalNotifications)
+function stableNotifId(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash) % 2147483647;
+}
+
 async function notify(loc) {
   if (!notificationsEnabled) return;
-  if (Notification.permission !== "granted") return;
   if (notified.has(loc.id)) return;
-
   notified.add(loc.id);
-  const reg = await navigator.serviceWorker.ready;
-  reg.showNotification("Hidden History Nearby", { body: loc.title, data: loc.id });
+
+  if (isNative) {
+    const { LocalNotifications } = Capacitor.Plugins;
+    await LocalNotifications.schedule({
+      notifications: [{
+        title: "Hidden History Nearby",
+        body: loc.title,
+        id: stableNotifId(loc.id),
+        extra: { locationId: loc.id }
+      }]
+    });
+  } else {
+    if (Notification.permission !== "granted") return;
+    const reg = await navigator.serviceWorker.ready;
+    reg.showNotification("Hidden History Nearby", { body: loc.title, data: loc.id });
+  }
 }
-/* Location */
+
+/* LOCATION */
 let userMarker;
 let watchId = null;
+let bgWatcherId = null;
 
-function startLocationTracking() {
+function handlePosition(lat, lng) {
+  const user = [lat, lng];
+
+  if (!userMarker) {
+    userMarker = L.circleMarker(user, {
+      radius: 6,
+      color: "#007aff",
+      fillColor: "#007aff",
+      fillOpacity: 1
+    }).addTo(map);
+  } else {
+    userMarker.setLatLng(user);
+  }
+
+  locations.forEach(loc => {
+    const dist = map.distance(user, [loc.lat, loc.lng]);
+    if (dist < 50) {
+      notify(loc);
+      markVisited(loc);
+    }
+  });
+}
+
+async function startLocationTracking() {
+  if (isNative) {
+    const { BackgroundGeolocation } = Capacitor.Plugins;
+    if (BackgroundGeolocation) {
+      bgWatcherId = await BackgroundGeolocation.addWatcher(
+        {
+          backgroundMessage: "Looking for nearby historical sites\u2026",
+          backgroundTitle: "Hidden History",
+          requestPermissions: true,
+          stale: false,
+          distanceFilter: 10
+        },
+        (position, error) => {
+          if (error) { console.error("BG geolocation error", error); return; }
+          handlePosition(position.latitude, position.longitude);
+        }
+      );
+      return;
+    }
+    // Fall through to web geolocation if plugin unavailable
+  }
+
   if (!("geolocation" in navigator)) return;
 
   watchId = navigator.geolocation.watchPosition(
-    pos => {
-      const user = [pos.coords.latitude, pos.coords.longitude];
-
-      if (!userMarker) {
-        userMarker = L.circleMarker(user, {
-          radius: 6,
-          color: "#007aff",
-          fillColor: "#007aff",
-          fillOpacity: 1
-        }).addTo(map);
-      } else {
-        userMarker.setLatLng(user);
+    pos => handlePosition(pos.coords.latitude, pos.coords.longitude),
+    err => {
+      console.error("Geolocation error", err);
+      if (err.code === err.PERMISSION_DENIED) {
+        alert("Location access was denied. To use this app, enable location access in your device settings.");
       }
-
-      locations.forEach(loc => {
-        const dist = map.distance(user, [loc.lat, loc.lng]);
-        if (dist < 50) {
-          notify(loc);
-          markVisited(loc);
-        }
-      });
     },
-    err => console.error("Geolocation error", err),
     { enableHighAccuracy: true, maximumAge: 10000, timeout: 10000 }
   );
 }
 
-/* SERVICE WORKER */
-if ("serviceWorker" in navigator) {
+/* NOTIFICATION LISTENERS + SERVICE WORKER */
+if (isNative) {
+  // In native context, listen for taps on local notifications
+  const { LocalNotifications } = Capacitor.Plugins;
+  if (LocalNotifications) {
+    LocalNotifications.addListener("localNotificationActionPerformed", event => {
+      const locationId = event.notification.extra?.locationId;
+      if (locationId) openLocationById(locationId);
+    });
+  }
+} else if ("serviceWorker" in navigator) {
+  // In PWA/browser context, use service worker
   navigator.serviceWorker.register("./service-worker.js");
 
   navigator.serviceWorker.addEventListener("message", event => {
@@ -263,7 +326,6 @@ function applyFilters() {
   });
 }
 
-
 function openFilter() {
   document.getElementById("filter-sidebar").classList.remove("hidden");
 }
@@ -279,16 +341,29 @@ window.addEventListener("DOMContentLoaded", () => {
     const loc = locations.find(l => l.id === id);
     if (loc) setTimeout(() => openLocationById(id), 500);
   }
-  document.getElementById("start-app")?.addEventListener("click", async () => {
-    if ("Notification" in window) {
-      const permission = await Notification.requestPermission();
-      if (permission === "granted") notificationsEnabled = true;
-    }
-    
-    document.getElementById("splash").style.display = "none";
-      map.invalidateSize();
-      startLocationTracking();
 
+  document.getElementById("start-app")?.addEventListener("click", async () => {
+    // Request notification permission ‚Äî wrapped in try/catch because iOS PWAs
+    // can throw from Notification.requestPermission(), which would otherwise
+    // silently prevent geolocation from ever starting
+    try {
+      if (isNative) {
+        const { LocalNotifications } = Capacitor.Plugins;
+        if (LocalNotifications) {
+          const perm = await LocalNotifications.requestPermissions();
+          if (perm.display === "granted") notificationsEnabled = true;
+        }
+      } else if ("Notification" in window) {
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") notificationsEnabled = true;
+      }
+    } catch (e) {
+      console.warn("Notification permission unavailable:", e);
+    }
+
+    document.getElementById("splash").style.display = "none";
+    map.invalidateSize();
+    startLocationTracking();
   });
 
   document.getElementById("open-visited")?.addEventListener("click", openVisited);
@@ -296,13 +371,12 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("close-info")?.addEventListener("click", closeInfo);
   document.getElementById("close-exhibit")?.addEventListener("click", closeExhibit);
   document.getElementById("open-filter")?.addEventListener("click", openFilter);
-    document.getElementById("close-filter")?.addEventListener("click", closeFilter);
-    document.querySelectorAll("#filter-list input[type=checkbox]").forEach(cb => {
-      cb.addEventListener("change", () => {
-        if (cb.checked) activeFilters.add(cb.dataset.category);
-        else activeFilters.delete(cb.dataset.category);
-        applyFilters();
-      });
+  document.getElementById("close-filter")?.addEventListener("click", closeFilter);
+  document.querySelectorAll("#filter-list input[type=checkbox]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      if (cb.checked) activeFilters.add(cb.dataset.category);
+      else activeFilters.delete(cb.dataset.category);
+      applyFilters();
     });
-
+  });
 });
