@@ -20,28 +20,116 @@ html, body {
   font-family: "Source Sans 3", system-ui, sans-serif;
 }
 
+/* FLEX COLUMN LAYOUT ‚Äî fixes map height on all devices */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
 /* SPLASH */
 #splash {
   position: fixed;
   inset: 0;
-  background: linear-gradient(#f5f1e8, #e9e3d6);
+  background: linear-gradient(160deg, #f5f1e8 0%, #e5ddc8 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 3000;
-  text-align: center;
   padding: 2rem;
 }
 
-#splash button {
+#splash-inner {
+  background: #fffdf7;
+  border: 1px solid #d6c89a;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#splash-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#splash-icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#splash-title {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-dark);
+  margin: 0;
+}
+
+.splash-rule {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-brass);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+}
+
+.splash-rule::before,
+.splash-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--accent-brass);
+  opacity: 0.5;
+}
+
+#splash-tagline {
+  font-family: "EB Garamond", serif;
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+#splash-note {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+#start-app {
   background: var(--accent-deep);
   color: white;
   border: none;
   border-radius: 999px;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   font-size: 1rem;
+  font-family: "Libre Baskerville", serif;
+  letter-spacing: 0.05em;
   box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+#start-app:active {
+  opacity: 0.85;
 }
 
 /* HEADER */
@@ -54,12 +142,15 @@ html, body {
   padding: 0.75rem 1rem;
   box-shadow: var(--shadow-soft);
   z-index: 1000;
+  flex-shrink: 0;
 }
-
 
 .app-header h1 {
   font-family: "Libre Baskerville", serif;
   font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   margin: 0;
   flex: 1;
 }
@@ -73,20 +164,78 @@ html, body {
   font-size: 16px;
 }
 
-#open-visited {
-  background: var(--accent-brass);
+/* MAP ‚Äî fills remaining space between header and toolbar */
+#map {
+  flex: 1;
+  min-height: 0;
+}
+
+/* PIN LABELS ‚Äî only visible at zoom ‚â• 15 */
+#map:not(.show-labels) .pin-label {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.2s;
+}
+
+#map.show-labels .pin-label {
+  opacity: 1 !important;
+  transition: opacity 0.2s;
+}
+
+/* BOTTOM TOOLBAR */
+#bottom-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel-bg);
+  padding: 0.6rem 1rem;
+  padding-bottom: calc(0.6rem + env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+  z-index: 1000;
+  flex-shrink: 0;
+}
+
+#bottom-toolbar button {
+  background: var(--accent-deep);
   color: white;
   border: none;
   border-radius: 999px;
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  font-family: "Libre Baskerville", serif;
+  letter-spacing: 0.04em;
+  cursor: pointer;
 }
 
-/* MAP */
-#map {
-  height: calc(100vh - 60px);
+#open-visited {
+  background: var(--accent-brass) !important;
 }
 
-/* INFO PANEL */
+#visit-progress {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* FILTER OVERLAY (dimming backdrop) */
+#filter-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+#filter-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* INFO PANEL ‚Äî slide up from bottom */
 #info-panel {
   position: fixed;
   bottom: 0;
@@ -99,13 +248,22 @@ html, body {
   box-shadow: var(--shadow-soft);
   border-radius: 18px 18px 0 0;
   padding: 1rem;
-  padding-right: 1rem;
   padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   z-index: 1500;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   box-sizing: border-box;
+
+  /* Slide-up animation */
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 0.3s ease, visibility 0.3s;
+}
+
+#info-panel.open {
+  transform: translateY(0);
+  visibility: visible;
 }
 
 #info-panel-header {
@@ -126,8 +284,6 @@ html, body {
   flex-shrink: 0;
 }
 
-
-/* Fix image inside info panel */
 #info-image {
   width: 81%;
   height: auto;
@@ -136,12 +292,10 @@ html, body {
   margin: 0 auto;
 }
 
-/* Force inner content to respect panel width */
 #info-panel > *:not(img) {
   width: 100%;
   max-width: 100%;
 }
-
 
 #info-panel p {
   margin: 0;
@@ -166,7 +320,6 @@ html, body {
   word-break: break-word;
 }
 
-
 .hidden {
   display: none !important;
 }
@@ -187,56 +340,21 @@ html, body {
   filter: sepia(0.3) contrast(1.1) brightness(0.9);
 }
 
-
-
 /* VISITED LIST ITEMS */
 #visited-list li {
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
-}
-#visited-list li:hover {
-  background: #f0e9d9;
-}
-
-/* ===============================
-   HISTORICAL / MUSEUM TYPOGRAPHY
-   =============================== */
-
-/* App title */
-.app-header h1 {
-  font-family: "Libre Baskerville", serif;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-/* Section headings */
-#info-panel h2,
-#visited-panel h2 {
-  font-family: "Libre Baskerville", serif;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-/* Body text (descriptions) */
-/* Exhibit-style description text */
-#info-description {
-  font-family: "EB Garamond", serif;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--ink-dark);
-}
-
-/* Lists stay clean and modern */
-#visited-list li {
   font-family: "Source Sans 3", system-ui, sans-serif;
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--ink-dark);
 }
 
-/* Dates / metadata feel */
+#visited-list li:hover {
+  background: #f0e9d9;
+}
+
 #visited-list small {
   font-size: 0.75rem;
   letter-spacing: 0.06em;
@@ -244,7 +362,24 @@ html, body {
   color: var(--ink-muted);
 }
 
-/* Buttons feel archival, not modern */
+/* ===============================
+   HISTORICAL / MUSEUM TYPOGRAPHY
+   =============================== */
+
+#info-panel h2,
+#visited-panel h2 {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+#info-description {
+  font-family: "EB Garamond", serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-dark);
+}
+
 button {
   font-family: "Libre Baskerville", serif;
   letter-spacing: 0.05em;
@@ -295,24 +430,6 @@ button {
   accent-color: var(--accent-brass);
 }
 
-#open-filter {
-  background: var(--accent-deep);
-  color: white;
-  border: none;
-  border-radius: 999px;
-  padding: 0.4rem 0.9rem;
-}
-
-#header-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  align-items: flex-end;
-}
-
-#header-buttons button {
-  width: 100%;
-}
 /* EXHIBIT SCREEN */
 #exhibit-screen {
   position: fixed;
@@ -362,7 +479,6 @@ button {
   gap: 0.75rem;
 }
 
-
 #exhibit-gallery img {
   width: 81%;
   height: auto;
@@ -370,8 +486,6 @@ button {
   display: block;
   margin: 0 auto;
 }
-
-
 
 #exhibit-gallery figure {
   margin: 0;
@@ -381,7 +495,6 @@ button {
   flex: 1 1 45%;
 }
 
-
 #exhibit-gallery figcaption {
   font-family: "Source Sans 3", sans-serif;
   font-size: 0.85rem;
@@ -389,7 +502,6 @@ button {
   text-align: center;
   font-style: italic;
 }
-
 
 #exhibit-description {
   font-family: "EB Garamond", serif;
