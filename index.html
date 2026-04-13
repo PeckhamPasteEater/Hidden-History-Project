@@ -18,61 +18,65 @@
   <meta name="theme-color" content="#111111">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  
 </head>
 
 <body>
 
   <!-- SPLASH SCREEN -->
   <div id="splash">
-    <img src="icon-180-final.png" alt="Hidden History Project icon">
-    <p>
-      Welcome to the Hidden History Project.<br><br>
-      For the best experience, we suggest enabling
-      <strong>location tracking</strong> and
-      <strong>notifications</strong>.
-    </p>
-    <button id="start-app">Continue</button>
+    <div id="splash-inner">
+      <div id="splash-icon-wrap">
+        <img src="icon-180-final.png" alt="Hidden History Project icon">
+      </div>
+      <h1 id="splash-title">Hidden History</h1>
+      <div class="splash-rule"><span>‚óÜ</span></div>
+      <p id="splash-tagline">Discover the forgotten stories<br>beneath your feet.</p>
+      <p id="splash-note">Enable <strong>location</strong> and <strong>notifications</strong><br>for the full experience.</p>
+      <button id="start-app">Begin Exploring</button>
+    </div>
   </div>
 
   <!-- HEADER -->
   <header class="app-header">
     <h1>Hidden History</h1>
-    <input id="search" placeholder="Search locations…" />
-    <div id="header-buttons">
-      <button id="open-filter">Filter</button>
-      <button id="open-visited">Visited</button>
-    </div>
-
-
+    <input id="search" placeholder="Search locations‚Ä¶" />
   </header>
 
   <!-- MAP -->
   <div id="map"></div>
 
-<!-- INFO PANEL -->
-<div id="info-panel" class="hidden">
-  <div id="info-panel-header">
-    <h2 id="info-title"></h2>
-    <button id="close-info">✕</button>
+  <!-- BOTTOM TOOLBAR -->
+  <div id="bottom-toolbar">
+    <button id="open-filter">‚äû&ensp;Filter</button>
+    <div id="visit-progress"></div>
+    <button id="open-visited">‚òÖ&ensp;Visited</button>
   </div>
 
-  <img id="info-image" />
-  <p id="info-description"></p>
-  <button id="see-more-btn" class="hidden">See More</button>
-</div>
+  <!-- FILTER OVERLAY -->
+  <div id="filter-overlay"></div>
+
+  <!-- INFO PANEL -->
+  <div id="info-panel">
+    <div id="info-panel-header">
+      <h2 id="info-title"></h2>
+      <button id="close-info">‚úï</button>
+    </div>
+    <img id="info-image" />
+    <p id="info-description"></p>
+    <button id="see-more-btn" class="hidden">See More</button>
+  </div>
 
   <!-- VISITED PANEL -->
   <div id="visited-panel" class="hidden">
     <h2>Visited Places</h2>
     <ul id="visited-list"></ul>
-    <button id="close-visited">Close Visited</button>
+    <button id="close-visited">Close</button>
   </div>
 
-    <!-- EXHIBIT SCREEN -->
+  <!-- EXHIBIT SCREEN -->
   <div id="exhibit-screen" class="hidden">
     <div id="exhibit-header">
-      <button id="close-exhibit">← Back to Map</button>
+      <button id="close-exhibit">‚Üê Back to Map</button>
       <h2 id="exhibit-title"></h2>
     </div>
     <div id="exhibit-body">
@@ -81,8 +85,7 @@
     </div>
   </div>
 
-
-    <!-- FILTER SIDEBAR -->
+  <!-- FILTER SIDEBAR -->
   <div id="filter-sidebar" class="hidden">
     <h2>Filter</h2>
     <ul id="filter-list">
@@ -93,7 +96,6 @@
     </ul>
     <button id="close-filter">Close</button>
   </div>
-
 
   <!-- SCRIPTS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
