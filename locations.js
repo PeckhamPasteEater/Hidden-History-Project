@@ -31,11 +31,11 @@ const locations = [
     image: "photos/gamble-garden-1.JPG",
     longDescription: "An estate which would later be a garden established by Edwin P. Gamble, son of the co-founder of Procter and Gamble, James Gamble, in 1901. For a sum total of $6, 039, Gamble constructed a cottage and carriage house for himself on the edge of town; although now the Gamble Garden is surrounded by suburbs, it was once the very edge of Palo Alto. Gamble would have been free to expand into what was once wilderness. His daughter, Elizabeth, would ride her pony around the grounds as a youth, but soon grew into a passionate gardener. Known for her floral print dresses and generosity with garden flowers, she used her wealth to provide loans for young girls to attend college. She inherited the estate in 1939 and devoted her life to beautifying it, adding the Tea House in 1948. When she died at age ninety-two in 1981, her estate was bequeathed to the city of Palo Alto, who converted the plot into a public garden. In collaboration with the Museum of American Heritage.",
     images: [
-      { src: "photos/gamble-garden-1.JPG", caption: "" },
-      { src: "photos/gamble-garden-2.JPG", caption: "" },
-      { src: "photos/gamble-garden-3.JPG", caption: "" }
-    ],
-
+      { src: "photos/garden-1.JPG", caption: "The Gamble family house, in which Elizabeth was raised. Credit: PAST Palo Alto."},
+      { src: "photos/garden-2.JPG", caption: "Credit: PAST Palo Alto." },
+      { src: "photos/garden-3.JPG", caption: "A pagoda in Elizabeth's garden. Credit: PAST Palo Alto." },
+      { src: "photos/garden-4.JPG", caption: "Credit: PAST Palo Alto." }
+    ]
   },
   {
     id: "hp_garage",
@@ -46,7 +46,9 @@ const locations = [
     description: "Considered the 'birthplace of Silicon Valley' -- the storied garage from which HP was founded. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Widely considered the birthplace of Silicon Valley. Constructed at an unknown date behind a house dating to 1905. While searching for rentals which contained both a workshop and ample living space, Bill Hewlett and Dave Packard discovered the Addison Avenue property. Together, they shared the $45 per month rent, and used their garage as a space for research, development, and prototyping, including for the Model 200A audio oscillator, HP's first product. Soon, after having named the company, they outgrew their garage, moving into a Page Mill Road property. HP re-aquired the Garage property in 2000, and has preserved its original 1939 conditions. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/hp-garage-1.JPG", caption: "A photo of the garage prior to its 2005 restoration. Credit: PAST Palo Alto." }
+    ]
   },
   {
     id: "roth_building",
@@ -56,8 +58,12 @@ const locations = [
     category: "pre_silicon_valley",
     description: "The site of Palo Alto's first group medical practice, founded in 1932. The building now houses the Palo Alto Museum. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "The original site of The Palo Alto Medical Clinic, the first group medical practice in Palo Alto. Founded by Dr. Russell Lee, a graduate of Berkeley and Stanford Medical School, and Dr. Thomas Williams, who later hired Dr. EB Roth and Dr. Esther B. Clark--of park fame. After more shifts in staff, they formed the Palo Alto Medical Clinic, Ltd. in the early thirties, often conflated by many at the time with socialised medicine. They outgrew their original quarters on Bryant, and constructed the Spanish Eclectic Roth Building under the guide of architect--and sister of Dr. Clark--Birge Clark. Centred around a courtyard are wings and rooms that once were doctor's offices or examination rooms. In 2026, it became the Palo Alto History Museum. In collaboration with the Museum of American Heritage.",
-    images: []
+    longDescription: "The original site of The Palo Alto Medical Clinic, the first group medical practice in Palo Alto. Founded by Dr. Russell Lee, a graduate of Berkeley and Stanford Medical School, and Dr. Thomas Williams, who later hired Dr. EB Roth and Dr. Esther B. Clark--now of park fame. After more shifts in staff, they formed the Palo Alto Medical Clinic, Ltd. in the early thirties, often conflated by many at the time with socialised medicine. They outgrew their original quarters on Bryant, and constructed the Spanish Eclectic Roth Building under the guide of architect--and sister of Dr. Clark--Birge Clark. Centred around a courtyard are wings and rooms that once were doctor's offices or examination rooms. In 2026, it became the Palo Alto History Museum. In collaboration with the Museum of American Heritage.",
+    images: [
+      { src: "photos/roth-1.JPG", caption: "Pay close attention to the Spanish Revival detail of Birge Clark. Credit: PAST Palo Alto." },
+      { src: "photos/roth-2.JPG", caption: "The interior is adorned with murals depicting modern medical scenes. Credit: PAST Palo Alto." },
+      { src: "photos/roth-3.JPG", caption: "The arches and tiles on the roof add a unique charm. Credit: PAST Palo Alto." }
+    ]
   },
   {
     id: "stanford_theatre",
@@ -68,7 +74,11 @@ const locations = [
     description: "The famed Neoclassical cinema on University Avenue, opened in 1925. Click 'See More' to learn about this site.",
     image: "",
     longDescription: "Beloved historical theatre, opened 1925. Constructed in the Neoclassical movie palace style, a trend aiming to dazzle viewers not only through film but through ambience, for only $250,000, the New Stanford Theatre became the Bay Area's expression of the movie craze sweeping the world. For many years, the Theatre thrived; then came the 1960s, wherein the building fell into disrepair as modern cinemas overshadowed it. In 1987, David Woodley Packard, the son of HP's David Packard, purchased and renovated the theatre for over $6,000,000. With much accuracy, the original theatre was revived. Today, it thrives, showing classic, often black-and-white, or even silent films to an audience of Bay Area film enthusiasts. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/theatre-1.JPG", caption: "Credit: PAST Palo Alto." },
+      { src: "photos/theatre-2.JPG", caption: "Credit: PAST Palo Alto." },
+      { src: "photos/theatre-3.JPG", caption: "Credit: PAST Palo Alto." }
+    ]
   },
   {
     id: "kee_house",
