@@ -87,9 +87,13 @@ const locations = [
     lng: -122.1474444,
     category: "pre_silicon_valley",
     description: "The oldest surviving building from Mayfield, one of the villages from which Palo Alto was built. One of the Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/kee-1.JPG",
     longDescription: "Historical house and barn dating to Palo Alto's predecessor village, Mayfield. Robert Norton Kee purchased this land, and as the proprietor of a transfer business, in 1889, he constructed a barn in which to house his horses, apparently for a sum total of $3, 500. He also purchased a building, once the G. Bracchi grocery, in 1893, which would become the modern Kee House. After shifting owners as a private residence as the village of Mayfield expanded into the City of Palo Alto, the was divided into apartments in the 60s. Unfortunately, the barn was destroyed in 1938, when it was the final surviving 19th century barn of Mayfield and the first barn in the College Terrace neighbourhood. The house remains a residence to this day. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/kee-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/kee-2.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/kee-3.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "squire_house",
@@ -98,9 +102,13 @@ const locations = [
     lng: -122.153056,
     category: "pre_silicon_valley",
     description: "A striking Roman Revival edifice constructed in 1904 for the heir to the Swift meatpacking empire, part of the Big Four meatpacking monopolies. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/squire-1.JPG",
     longDescription: "Arguably the most characteristic and striking house on University Avenue. As heir to one of the Big Four meatpacking monopolies, In 1904, John Adams Squire and his wife Georgiana commissioned San Francisco architect T. Paterson Ross to build their mansion, which costed $18, 000. Ross was a native of Edinburgh, and emigrated to San Francisco in 1890 as a twelve-year-old. Due to his work in San Francisco, he had become an acclaimed architect. For Squire and his wife, he created a great Roman Revival edifice, complete with a palm-lined drive. The interior is spacious and comfortable, while, in the rear, there is housed a swimming pool. When demolition threatened Squire House in 1973, a citizen's committee raised $90, 000, and in tandem with a $118, 000 contribution from the City, the house was restored. It is listed on the National Register of Historic Places. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/squire-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/squire-2.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/squire-3.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "hanna_house",
@@ -109,9 +117,11 @@ const locations = [
     lng: -122.1635528,
     category: "silicon_valley",
     description: "Frank Lloyd Wright's first work in the Bay Area, where he experimented with many of the techniques he would make famous in later works, such as the Guggenheim. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/hanna-1.JPG",
     longDescription: "Also known as the Honeycomb House: Frank Lloyd Wright's first work in the San Francisco area. One of the most iconic American architects in history, Wright designed the Hanna House for Stanford professor Paul Hanna and his wife Jean in 1936. Hinged on Wright's seminal Usonian reformist ideals: houses that prioritised affordability and spatial flow in design, to ultimately create a more enlightened society. These techniques are evident in the lack of right angles in the House's floor plan, emphasising open space. Ideas experimented with in the Hanna House would later bloom into Wright masterpieces, such as that of the Guggenheim. Hanna reached Wright after being enthralled by Wright's book, Modern Architecture. The house developed over the course of 25 years, and even survived the 1989 Loma Prieta earthquake despite its location on the San Andreas Fault; it incurred significant damage, yet could certainly be repaired. In 1974, the house was donated to Stanford University. In collaboration with the Museum of American Heritage",
-    images: []
+    images: [
+      { src: "photos/hanna-1.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "palo_alto_tower_well",
@@ -120,9 +130,13 @@ const locations = [
     lng: -122.1673342,
     category: "pre_silicon_valley",
     description: "A reminder of a time when Palo Alto's entire water supply could be housed in a massive cylindrical tank. Constructed in 1910, featuring electronic mechanisation very advanced for its time. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/tower-well-1.JPG",
     longDescription: "Palo Alto has always been a forward-thinking city, and the Tower Well, which now sits conspicuously in a park of native plants, is a fascinating reminder of this. In 1896, Palo Alto was a town whose chief industry was livestock grazing -- and whose water bill was $1 a month. Still, that year the town became one of America's first settlements to run its own water utility. In 1910, the Well was constructed to store the town's entire water supply, both as potable water for the growing populace and to fight fire. Its walls are built of reinforced concrete, and its tank can hold 155,000 gallons of water. It distributed and regulated water using an electronic mechanism that could control capacity.  In collaboration with the Museum of American Heritage",
-    images: []
+    images: [
+      { src: "photos/tower-well-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/tower-well-2.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/tower-well-3.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "frenchmans_tower",
@@ -131,9 +145,13 @@ const locations = [
     lng: -122.161784,
     category: "pre_silicon_valley",
     description: "A genuine oddity: a tall, medieval spire jutting out of the side of Old Page Mill Road constructed by a French recluse. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/frenchmans-tower-1.JPG",
     longDescription: "The Frenchman's Tower is starkly out-of-place -- perhaps that's why there are so many stories about the engimatic spire placed awkwardly by the side of Old Page Mill Road. It was built in 1875 by Paulin Caperon, a French refugee who fled his country after the Franco-Prussian War. Earlier that year, he had assumed the name Peter Coutts and moved to Mayfield, one of the villages which would come together to form Palo Alto. Its Gothic windows and crenels, slits traditionally used to shield archers, resemble Medieval fortifications constructed centuries earlier in Caperot's continent of origin. The second floor acted as Caperon's water tank, while the first floor was a study and library. Interestingly, the building lacked doors; Caperon enterred through a window. Suddenly, in 1882, Caperon disappeared without notifying his neighbours. The reclusive man had decided to return to his native France and his properties were liquidated. Still, the tower's many curiosities, not least its tunnels, which were born to provide water to Caperon's farm and his lake, are the subject of Silicon Valley urban myth. Some in Caperon's time believed it harboured the French empress, a charge Caperon never denied, while others suspect it was on the getaway route for the 1974 killer of Arlis Perry. Today Frenchman's Tower survives in its intrigue; it's a curious reminder of the quirks hidden beneath Silicon Valley's surface.",
-    images: []
+    images: [
+      { src: "photos/frenchmans-tower-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/frenchmans-tower-2.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/frenchmans-tower-3.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "okeefe_site",
@@ -186,9 +204,12 @@ const locations = [
     lng: -122.1655246,
     category: "pre_silicon_valley",
     description: "A relic of the First World War; where soldiers in training would meet their families. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/hostess-1.JPG",
     longDescription: "The Hostess House is a relic of the Great War, a war whose impact would reach even the small township south of San Francisco. Built in 1918, the house was originally located in Menlo Park as part of Camp Fremont, a massive military camp built soon after the US enterred WWI in 1917. Julia Morgan, also the first woman in California to be certified in the field of architecture and architect of Hearst Castle, was commissioned to design the House as a place for soldiers to meet their loved ones. Soon after, the House became a favourite for the soldiers; the same year it was constructed, marriages began to be held in the building. However, as WWI concluded, the entirety of Camp Fremont was dismantled; only two buildings remained, one of which was the Hostess House. The city of Palo Alto purchased the House, moved it to its current University Ave location, and ran it as a community centre under the care of Josephine Duveneck of Hidden Villa fame. Now, it houses the MacArthur Park restaurant, emblematic of a changing city -- but one whose roots are ever-present. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/hostess-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/hostess-2.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "downing_house",
@@ -197,9 +218,14 @@ const locations = [
     lng: -122.15673,
     category: "pre_silicon_valley",
     description: "A beautiful Victorian house, one of the most ornate of early Palo Alto, constructed in 1894. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/downing-1.JPG",
     longDescription: "The Downing House is a splendid work of architecture, whose distinctive columns and witch's hat tower assert its long-standing presence amidst Cowper Avenue suburbia. Commissioned by T.B Downing and his wife Margaret Sandford, the house was constructed in 1894 by builder W. Matlock Campbell. Downing was a prominent investor in the burgeoning property market of early Palo Alto, which coincided with the initial growth of the university that had recently opened on Leland Stanford's ranch. As was typical of many American socialites of his time, he participated in local politics; he was an early member of the Palo Alto school board and city council. After Downing's death the house remained for nearly a century until it was restored as an office building in the 1970s. It remains today, a constant reminder of Palo Alto's growth amidst its past. Placeholder. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/downing-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/downing-2.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/downing-3.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/downing-4.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "bryant_house",
@@ -208,9 +234,13 @@ const locations = [
     lng: -122.1625154,
     category: "pre_silicon_valley",
     description: "The beautiful Spanish Revival former headquarters of the Palo Alto Fire and Police Station, built in 1927. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/bryant-1.JPG",
     longDescription: "The Bryant House on 440-450 Bryant Street speaks to Palo Alto's early governance. Constructed in 1927, it first served both as the fire station -- and police station. It was designed by well-known Palo Alto architect Birge Clark, who also designed hundreds of buildings that now make up central Palo Alto and its surroundings. His conscious Colonial Revival design references California's Spanish roots, and its ironwork, noticeable in its windows and porches, is elegant and skillful. Eventually, Palo Alto grew too large to be policed by solely the Bryant House, and it was vacated in 1970. Now it serves as Avenidas, a facility providing services to the elderly. Its continued presence crucially reminds us of that from which modern Palo Alto came, a city that once could be policed from one Spanish Colonial building. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/bryant-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/bryant-2.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/bryant-3.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "ashby_house",
@@ -219,9 +249,12 @@ const locations = [
     lng: -122.1480158,
     category: "pre_silicon_valley",
     description: "A modest cottage constructed in 1889 that was moved intact to its present location in 1910. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/ashby-1.JPG",
     longDescription: "The Ashby House at 1145 Forest Avenue is perhaps best characterised by its simplicity. Built in 1889 in the Victorian style, it was originally located down the street, at the end of the Forest Avenue block. In this site, the current site of 1033-1035 Forest, laid a well and pump from which the residents of the plot drew their water. The land was purchased in 1890 by Ella and Delmar Ashby; as the villages of the peninsula remained agrarian, land was ripe for development. Ashby hoped to make his mark by developing a cannery on his plot; however, these plans never materialised. Nonetheless, in 1910, the house would meet a very different fate: it would learn the art of mobility. Likely using a rudimentary system of horses and ropes, the Ashby cottage was moved intact to its present site. In 1919, the city of Palo Alto, which had been steadily expanding, annexed the cottage and the surrounding neighbourhood. It now lies inconspicuously today, a slice of the 19th century in contemporary Palo Alto. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/ashby-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/ashby-2.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "pa_post_office",
@@ -230,9 +263,15 @@ const locations = [
     lng: -122.1592599,
     category: "pre_silicon_valley",
     description: "A Mission Revival-style building designed by famed architect Birge Clark, constructed in 1932. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/post-office-1.JPG",
     longDescription: "Designated a National Landmark by the US Federal Government, the old post office of Palo Alto was a mark of an early 20th-century city rapidly on the rise. In the 1900s, as towns sprung up throughout the United States, post offices were often seen as the key to legitimacy, offering both contact to the outside world and a stamp of recognition from the federal government. Thus, when Palo Alto began work on its first permanent, purpose-built post office in 1932, there was much fanfare. It had been decided that the architect would be the celebrated Birge Clark, known today as 'Palo Alto's best-loved architect'; likewise, under the approval of President Herbert Hoover, Clark decided that the building would be designed in the Spanish Colonial style, harkening back to California history and the time of Spanish rule -- which was also an overt rejection of the classical design in federal buildings prevalent of the time. When it was completed in 1933, its traditional and deliberate callbacks to California heritage, vested in its tiled roof and arches, instilled a sense of pride and identity in Palo Alto, whose post office was a world apart from the homogenous government buildings of the era. To this day, Clark's iconic building holds much significance for Palo Alto. It was once a portal for the people of Palo Alto to the outside world; now, it helps remind Palo Alto of its own rich heritage. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/post-office-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/post-office-2.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/post-office-3.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/post-office-4.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/post-office-5.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "church_residence",
@@ -241,9 +280,14 @@ const locations = [
     lng: -122.1569313,
     category: "pre_silicon_valley",
     description: "The oldest church in Palo Alto, founded in 1901. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/church-1.JPG",
     longDescription: ". In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/church-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/church-2.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/church-3.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/church-4.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "harbourmasters_house",
@@ -252,9 +296,11 @@ const locations = [
     lng: -122.1075783,
     category: "pre_silicon_valley",
     description: "A small house constructed in 1937 in the Spanish Revival style, right off the San Francisco Bay. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/harbourmaster-1.JPG",
     longDescription: "Placeholder. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/harbourmaster-1.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "pa_first_hospital",
@@ -263,9 +309,14 @@ const locations = [
     lng: -122.160783,
     category: "pre_silicon_valley",
     description: "The first hospital in Palo Alto, founded following a typhoid epidemic between 1902-1903. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/hospital-1.JPG",
     longDescription: "Though today the building is largely unidentiable, Palo Alto's first functioning hospital laid at the crook of Lytton and Cowper. It was first conceived of out of a townwide sense of great urgency; Stanford and Palo Alto, then comprised of 3,500 residents, were facing a typhoid epidemic, likely triggered by contaminated milk. By late April that year, over 130 cases had been reported. What ensued was unprecedented; the town, under the leadership of Professor William F. Snow, rallied for improvement in public sanitation and health. As a direct result, the Students Guild Hospital was founded, serving as the first permanent hospital in Palo Alto. Set in a three-story Victorian house, the hospital served Palo Alto for a decade until it was replaced by a larger building elsewhere. Despite its short lifespan, the Students' Guild Hospital was pivotal in keeping the impact of a potentially catastrophic epidemic minimal. In collaboration with the Museum of American Heritage.",
-    images: []
+    images: [
+      { src: "photos/hospital-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/hospital-2.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/hospital-3.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/hospital-4.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "professorville",
@@ -285,9 +336,12 @@ const locations = [
     lng: -122.157419,
     category: "pre_silicon_valley",
     description: "The site of the core contributors to Silicon Valley's development, as early as 1909; it witnessed breakthroughs in wireless technology under Cyril F. Elwell. Click 'See More' to learn about this site.",
-    image: "",
+    image: "photos/elwell-1.JPG",
     longDescription: "To no the story of Federal Telegraph is to know the roots of Silicon Valley. Long before HP, or venture capital, or any Apple prototype, in an unassuming house on Emerson Street, history was being made. The laboratory on Emerson was founded by the Federal Telegraph Company: under the leadership of Cyril F. Elwell, a Stanford graduate, the Company gave Palo Alto its first taste of large, global industry as it developed naval communication technology in the Great War. But its even greater significance would be less conspicuous; the year was 1912, and early radio researcher Lee De Forest had made a groundbreaking discovery. He planned to exhibit it to the world. In a demonstration that is now famous, De Forest placed a pocketwatch whose ticks were quietly audible and connected it to his own invention: the triode vacuum tube, also known as the Audion. When he connected his Audion to a telephone earpiece -- which then fed into the horn of a record player -- he demoed for his audience his own shocking discovery: everyone in the room could hear the watch's ticks. Out of the tiny house on Emerson, he had made an advancement that had turned electronics from a theoretical field to a tangible one. However, Federal Telegraph's success also meant the end of its tenure in the small Palo Alto house; in 1916, it moved to a much larger facility on El Camino, and remained there until 1931, when operations were shifted to New Jersey to save costs. Still, over a century after De Forest's experiments, when a mobile phone call is second nature, it's important to recognise the significance of a small, plank-lined house that once lied on Emerson Street.",
-    images: []
+    images: [
+      { src: "photos/elwell-1.JPG", caption: "Credit: PAST Palo Alto" },
+      { src: "photos/elwell-2.JPG", caption: "Credit: PAST Palo Alto" }
+    ]
   },
   {
     id: "meta_hq",
