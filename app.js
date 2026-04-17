@@ -44,7 +44,7 @@ L.tileLayer(
 /* ZOOM LABEL VISIBILITY */
 function updateLabelVisibility() {
   const mapEl = document.getElementById("map");
-  if (map.getZoom() >= 15) {
+  if (map.getZoom() >= 13) {
     mapEl.classList.add("show-labels");
   } else {
     mapEl.classList.remove("show-labels");
