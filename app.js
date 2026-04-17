@@ -88,18 +88,14 @@ function updateProgress() {
 /* OPEN LOCATION FROM NOTIFICATION */
 function openLocationById(id) {
   if (!id) return;
-
   const loc = locations.find(l => l.id === id);
   if (!loc) return;
-
-  // iOS + PWA need a short delay so the map can reflow
   setTimeout(() => {
     map.invalidateSize(true);
     map.setView([loc.lat, loc.lng], 17, { animate: true });
     openInfo(loc);
   }, 300);
 }
-
 
 /* INFO PANEL */
 function openInfo(loc) {
@@ -123,6 +119,10 @@ function openInfo(loc) {
   }
 
   document.getElementById("info-panel").classList.add("open");
+}
+
+function closeInfo() {
+  document.getElementById("info-panel").classList.remove("open");
 }
 
 function openExhibit(loc) {
@@ -163,19 +163,52 @@ function closeExhibit() {
   map.invalidateSize();
 }
 
-function closeInfo() {
-  document.getElementById("info-panel").classList.remove("open");
+/* SEARCH DROPDOWN */
+function updateSearchDropdown() {
+  const searchInput = document.getElementById("search");
+  const dropdown = document.getElementById("search-dropdown");
+  const q = searchInput.value.trim().toLowerCase();
+
+  if (q.length < 1) {
+    dropdown.classList.add("hidden");
+    dropdown.innerHTML = "";
+    return;
+  }
+
+  const matches = locations
+    .filter(loc => typeof loc.lat === "number" && loc.title.toLowerCase().includes(q))
+    .slice(0, 8);
+
+  if (matches.length === 0) {
+    dropdown.classList.add("hidden");
+    dropdown.innerHTML = "";
+    return;
+  }
+
+  dropdown.innerHTML = "";
+  matches.forEach(loc => {
+    const item = document.createElement("div");
+    item.className = "search-result";
+    item.textContent = loc.title;
+    item.addEventListener("mousedown", e => {
+      // mousedown fires before blur, so the dropdown stays open long enough
+      e.preventDefault();
+    });
+    item.addEventListener("click", () => {
+      searchInput.value = "";
+      dropdown.classList.add("hidden");
+      dropdown.innerHTML = "";
+      map.setView([loc.lat, loc.lng], 17);
+      openInfo(loc);
+      applyFilters();
+    });
+    dropdown.appendChild(item);
+  });
+
+  dropdown.classList.remove("hidden");
 }
 
-/* SEARCH */
-document.getElementById("search").addEventListener("input", () => {
-  applyFilters();
-});
-
-
 /* NOTIFICATIONS */
-
-// Produces a stable 32-bit integer ID from a string (required by LocalNotifications)
 function stableNotifId(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
@@ -254,7 +287,6 @@ async function startLocationTracking() {
       );
       return;
     }
-    // Fall through to web geolocation if plugin unavailable
   }
 
   if (!("geolocation" in navigator)) return;
@@ -273,7 +305,6 @@ async function startLocationTracking() {
 
 /* NOTIFICATION LISTENERS + SERVICE WORKER */
 if (isNative) {
-  // In native context, listen for taps on local notifications
   const { LocalNotifications } = Capacitor.Plugins;
   if (LocalNotifications) {
     LocalNotifications.addListener("localNotificationActionPerformed", event => {
@@ -282,9 +313,7 @@ if (isNative) {
     });
   }
 } else if ("serviceWorker" in navigator) {
-  // In PWA/browser context, use service worker
   navigator.serviceWorker.register("./service-worker.js");
-
   navigator.serviceWorker.addEventListener("message", event => {
     if (event.data?.action === "open-location") {
       openLocationById(event.data.id);
@@ -292,17 +321,14 @@ if (isNative) {
   });
 }
 
-
-/* VISITED FUNCTIONS */
+/* VISITED */
 function markVisited(loc) {
   const visited = getVisited();
   if (visited[loc.id]) return;
   visited[loc.id] = new Date().toISOString();
   saveVisited(visited);
-
   const marker = markers[loc.id];
   if (marker) marker.setIcon(visitedIcon);
-
   updateProgress();
 }
 
@@ -312,8 +338,9 @@ function openVisited() {
   const visited = getVisited();
   const entries = Object.entries(visited).sort((a, b) => new Date(b[1]) - new Date(a[1]));
 
-  if (entries.length === 0) list.innerHTML = "<li>No places visited yet.</li>";
-  else {
+  if (entries.length === 0) {
+    list.innerHTML = "<li style='padding:0.5rem 0;color:var(--ink-muted);font-family:\"EB Garamond\",serif;font-size:1rem;'>No places visited yet.</li>";
+  } else {
     entries.forEach(([id, dateString]) => {
       const loc = locations.find(l => l.id === id);
       if (!loc) return;
@@ -327,12 +354,10 @@ function openVisited() {
   }
 
   document.getElementById("visited-panel").classList.remove("hidden");
-  document.body.style.overflow = "hidden";
 }
 
 function closeVisited() {
   document.getElementById("visited-panel").classList.add("hidden");
-  document.body.style.overflow = "";
 }
 
 /* FILTER */
@@ -372,10 +397,8 @@ window.addEventListener("DOMContentLoaded", () => {
     if (loc) setTimeout(() => openLocationById(id), 500);
   }
 
+  // Splash
   document.getElementById("start-app")?.addEventListener("click", async () => {
-    // Request notification permission ‚Äî wrapped in try/catch because iOS PWAs
-    // can throw from Notification.requestPermission(), which would otherwise
-    // silently prevent geolocation from ever starting
     try {
       if (isNative) {
         const { LocalNotifications } = Capacitor.Plugins;
@@ -390,12 +413,25 @@ window.addEventListener("DOMContentLoaded", () => {
     } catch (e) {
       console.warn("Notification permission unavailable:", e);
     }
-
     document.getElementById("splash").style.display = "none";
     map.invalidateSize();
     startLocationTracking();
   });
 
+  // Search input + dropdown
+  const searchInput = document.getElementById("search");
+  searchInput.addEventListener("input", () => {
+    applyFilters();
+    updateSearchDropdown();
+  });
+  searchInput.addEventListener("blur", () => {
+    setTimeout(() => {
+      const dropdown = document.getElementById("search-dropdown");
+      dropdown.classList.add("hidden");
+    }, 150);
+  });
+
+  // Panel buttons
   document.getElementById("open-visited")?.addEventListener("click", openVisited);
   document.getElementById("close-visited")?.addEventListener("click", closeVisited);
   document.getElementById("close-info")?.addEventListener("click", closeInfo);
@@ -404,6 +440,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("close-filter")?.addEventListener("click", closeFilter);
   document.getElementById("filter-overlay")?.addEventListener("click", closeFilter);
 
+  // Filter checkboxes
   document.querySelectorAll("#filter-list input[type=checkbox]").forEach(cb => {
     cb.addEventListener("change", () => {
       if (cb.checked) activeFilters.add(cb.dataset.category);
@@ -411,4 +448,34 @@ window.addEventListener("DOMContentLoaded", () => {
       applyFilters();
     });
   });
+
+  // Swipe left to close filter sidebar
+  const filterSidebar = document.getElementById("filter-sidebar");
+  let filterSwipeStartX = null;
+  filterSidebar.addEventListener("touchstart", e => {
+    filterSwipeStartX = e.touches[0].clientX;
+  }, { passive: true });
+  filterSidebar.addEventListener("touchend", e => {
+    if (filterSwipeStartX === null) return;
+    const dx = filterSwipeStartX - e.changedTouches[0].clientX;
+    if (dx > 60) closeFilter();
+    filterSwipeStartX = null;
+  }, { passive: true });
+
+  // Swipe down to close info panel
+  const infoPanel = document.getElementById("info-panel");
+  let infoSwipeStartY = null;
+  let infoSwipeStartTime = null;
+  infoPanel.addEventListener("touchstart", e => {
+    infoSwipeStartY = e.touches[0].clientY;
+    infoSwipeStartTime = Date.now();
+  }, { passive: true });
+  infoPanel.addEventListener("touchend", e => {
+    if (infoSwipeStartY === null) return;
+    const dy = e.changedTouches[0].clientY - infoSwipeStartY;
+    const dt = Date.now() - infoSwipeStartTime;
+    // Fast downward flick: moved down 50px+ in under 400ms
+    if (dy > 50 && dt < 400) closeInfo();
+    infoSwipeStartY = null;
+  }, { passive: true });
 });
