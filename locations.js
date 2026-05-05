@@ -161,7 +161,7 @@ const locations = [
     category: ["ohlone", "duvenecks"],
     description: "Once a village constructed by the Ohlone, the Native American tribe that has lived in present-day Silicon Valley for at least 10,000 years. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Placeholder. In collaboration with Hidden Villa",
+    longDescription: "The Ohlone have resided in the land now called Silicon Valley for over 10,000 years, but many of their stories have yet to be told. This crook between Los Altos's western edge and Highway 280, for instance, holds massive significance for the Ohlone, specifically the Puichon subgroup. For this little residential suburb was once occupied by a Puishon village. Nestled on Adobe Creek, the settlement likely consisted of small, dome-shaped houses built of tule reed. The Puichon would likely have fished in the creek and foraged in the plentiful vegetation that continues to surround the site today. It was discovered in 1971 as part of an excavatory effort launched by Foothill College, about two miles down the road. Archaeologists would discover skeletons -- indicative of a burial ground -- including one with ceremonial beads reserved for people of prominence. It is now marked simply by a plaque at the entrance to O'Keefe Lane, denoting it as Los Altos Hills Historical Site No. 1. It remains today as a crucial reminder of the millenia of peopled history that remains in Silicon Valley, long before tech and even long before the Missions. In collaboration with Hidden Villa",
     images: []
   },
   {
