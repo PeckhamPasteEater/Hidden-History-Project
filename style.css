@@ -347,7 +347,7 @@ body {
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow-soft);
   border-radius: 18px 18px 0 0;
-  padding: 1.5rem 1rem 1rem;
+  padding: 0 1rem 1rem;
   padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   z-index: 1500;
   overflow-x: hidden;
@@ -365,10 +365,17 @@ body {
 }
 
 #info-panel-header {
+  position: sticky;
+  top: 0;
+  background: var(--panel-bg);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.5rem;
+  padding: 1.25rem 0 0.5rem;
+  margin: 0 0 0.25rem;
+  z-index: 2;
 }
 
 #close-info {
