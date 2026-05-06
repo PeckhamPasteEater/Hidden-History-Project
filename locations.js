@@ -194,7 +194,7 @@ const locations = [
     category: "duvenecks",
     description: "An incredible site nestled unassumedly in Los Altos Hills; the site of the US Pacific Coast's first racially integrated summercamp, refuge for those fleeing WWII, and the United Farm Workers. Click 'See More' to learn about this site.",
     image: "",
-    longDescription: "Placeholder. In collaboration with Hidden Villa",
+    longDescription: "Hidden Villa's hostel has been an epicenter for activism in Silicon Valley, but you wouldn't know it. The farm itself has much locak history; it's own story is detailed in other nearby pins about the Duvenecks. However, their hostel played a significant role in hosting history for the wider, even national community. For instance, near the end of World War II, after the American government had rounded up Japanese Americans and placed them in undersourced internment camps, the hostel housed Japanese Americans looking to be re-settled. In 1945, while these Japanese-American adults went to work on the farm or nearby, the children went to summercamp, constituting the first racially-integrated summercamp on the American Pacific Coast. Two decades later, in 1965, the hostel would open its doors to the National Farm Workers Movement, which would later become the United Farm Workers. Although the original hostel has been torn down to make way for the ecologically sustainable building that stands in its place, its legacy as one of Silicon Valley's premier hubs for progressivism must be remembered. In collaboration with Hidden Villa",
     images: []
   },
   {
