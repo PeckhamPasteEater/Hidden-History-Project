@@ -266,6 +266,22 @@ body {
   transition: opacity 0.2s;
 }
 
+/* MAP CREDIT */
+#map-credit {
+  position: fixed;
+  bottom: calc(3rem + env(safe-area-inset-bottom) + 44px);
+  right: 6px;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.58rem;
+  color: rgba(30, 20, 10, 0.55);
+  background: rgba(253, 248, 240, 0.7);
+  padding: 2px 5px;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 900;
+  letter-spacing: 0.01em;
+}
+
 /* BOTTOM TOOLBAR */
 #bottom-toolbar {
   display: flex;
