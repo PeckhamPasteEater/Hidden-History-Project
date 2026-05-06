@@ -18,6 +18,7 @@ html, body {
   margin: 0;
   background: var(--bg-paper);
   font-family: "Source Sans 3", system-ui, sans-serif;
+  overscroll-behavior: none;
 }
 
 /* FLEX COLUMN LAYOUT */
