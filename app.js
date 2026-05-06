@@ -446,6 +446,12 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("open-filter")?.addEventListener("click", openFilter);
   document.getElementById("close-filter")?.addEventListener("click", closeFilter);
   document.getElementById("filter-overlay")?.addEventListener("click", closeFilter);
+  document.getElementById("open-about")?.addEventListener("click", () => {
+    document.getElementById("about-screen").classList.remove("hidden");
+  });
+  document.getElementById("close-about")?.addEventListener("click", () => {
+    document.getElementById("about-screen").classList.add("hidden");
+  });
 
   // Filter checkboxes
   document.querySelectorAll("#filter-list input[type=checkbox]").forEach(cb => {
