@@ -46,6 +46,7 @@
       <input id="search" placeholder="Search locations&hellip;" autocomplete="off" />
       <div id="search-dropdown" class="hidden"></div>
     </div>
+    <button id="open-about" aria-label="About">&#9432;</button>
   </header>
 
   <!-- MAP -->
@@ -105,6 +106,38 @@
       <li><label><input type="checkbox" data-category="pre_silicon_valley" checked> Pre-Silicon Valley America</label></li>
       <li><label><input type="checkbox" data-category="ohlone" checked> Ohlone / Native History</label></li>
     </ul>
+  </div>
+
+  <!-- ABOUT SCREEN -->
+  <div id="about-screen" class="hidden">
+    <div id="about-header">
+      <button id="close-about">&larr; Back to Map</button>
+      <h2>About</h2>
+    </div>
+    <div id="about-body">
+
+      <section class="about-section">
+        <h3>About This Project</h3>
+        <p>The Hidden History Project is a walking tour of the forgotten and overlooked stories woven into the streets of Palo Alto and the wider South Bay. Our aim is to surface the voices and places that shaped this region long before Silicon Valley became a household name.</p>
+      </section>
+
+      <section class="about-section">
+        <h3>Partners &amp; Collaborators</h3>
+        <ul class="about-list">
+          <li>Museum of American Heritage (MOAH), Palo Alto</li>
+          <li>Hidden Villa, Los Altos Hills</li>
+          <li>PAST Palo Alto</li>
+        </ul>
+      </section>
+
+      <section class="about-section">
+        <h3>Resources &amp; Bibliography</h3>
+        <ul class="about-list" id="resources-list">
+          <li><em>Add your sources here.</em></li>
+        </ul>
+      </section>
+
+    </div>
   </div>
 
   <!-- MAP CREDIT -->
