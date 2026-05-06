@@ -41,6 +41,13 @@ L.tileLayer(
   }
 ).addTo(map);
 
+/* 1899 HISTORICAL MAP OVERLAY — bounds from PDF neatline (no margins) */
+L.imageOverlay(
+  "palo-alto-1899.jpg",
+  [[37.249941, -122.250416], [37.500000, -121.999584]],
+  { opacity: 0.8, zIndex: 1, interactive: false }
+).addTo(map);
+
 /* ZOOM LABEL VISIBILITY */
 function updateLabelVisibility() {
   const mapEl = document.getElementById("map");
