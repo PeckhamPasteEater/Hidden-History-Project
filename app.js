@@ -31,8 +31,8 @@ let notificationsEnabled = false;
 
 /* MAP SETUP */
 const map = L.map("map", {
-  minZoom: 10,
-  maxBounds: [[37.18, -122.35], [37.58, -121.92]],
+  minZoom: 12,
+  maxBounds: [[37.249941, -122.250416], [37.500000, -121.999584]],
   maxBoundsViscosity: 1.0
 });
 
@@ -45,7 +45,7 @@ L.tileLayer(
   }
 ).addTo(map);
 
-/* 1899 HISTORICAL MAP OVERLAY — bounds from PDF neatline (no margins) */
+/* 1899 HISTORICAL MAP OVERLAY */
 L.imageOverlay(
   "palo-alto-1899.jpg",
   [[37.249941, -122.250416], [37.500000, -121.999584]],
@@ -202,7 +202,6 @@ function updateSearchDropdown() {
     item.className = "search-result";
     item.textContent = loc.title;
     item.addEventListener("mousedown", e => {
-      // mousedown fires before blur, so the dropdown stays open long enough
       e.preventDefault();
     });
     item.addEventListener("click", () => {
@@ -285,7 +284,7 @@ async function startLocationTracking() {
     if (BackgroundGeolocation) {
       bgWatcherId = await BackgroundGeolocation.addWatcher(
         {
-          backgroundMessage: "Looking for nearby historical sites\u2026",
+          backgroundMessage: "Looking for nearby historical sites…",
           backgroundTitle: "Hidden History",
           requestPermissions: true,
           stale: false,
