@@ -30,7 +30,11 @@ const visitedIcon = L.icon({
 let notificationsEnabled = false;
 
 /* MAP SETUP */
-const map = L.map("map");
+const map = L.map("map", {
+  minZoom: 10,
+  maxBounds: [[36.9, -122.7], [37.85, -121.6]],
+  maxBoundsViscosity: 1.0
+});
 
 L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
