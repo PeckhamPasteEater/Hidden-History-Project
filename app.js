@@ -32,7 +32,7 @@ let notificationsEnabled = false;
 /* MAP SETUP */
 const map = L.map("map", {
   minZoom: 10,
-  maxBounds: [[36.9, -122.7], [37.85, -121.6]],
+  maxBounds: [[37.18, -122.35], [37.58, -121.92]],
   maxBoundsViscosity: 1.0
 });
 
